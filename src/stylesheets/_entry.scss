@@ -1,0 +1,12 @@
+@import "mixins";
+@import "views/header";
+@import "views/home";
+
+body{
+  $bg-color: #abcdef;
+
+  background-color: $bg-color;
+  box-sizing: border-box;
+  margin: 0 0;
+  font-family: Verdana, Geneva, sans-serif;
+}

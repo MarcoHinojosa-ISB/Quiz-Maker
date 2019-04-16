@@ -1,0 +1,31 @@
+#header{
+  $bg-color: #ccbbcc;
+  $border-color: #aa99bb;
+  $hovered-border-color: #cc7179;
+
+  background-color: $bg-color;
+  border-bottom: 1px solid $border-color;
+  padding: 10px 20px;
+
+  h1.title{
+    display: inline-block;
+    margin: 0 0;
+  }
+
+  ul.navigation{
+    display: inline-block;
+    margin-bottom: 0;
+    float: right;
+
+    >li{
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 5px;
+      transition: 0.1s;
+
+      &:hover{
+        border-bottom: 2px solid $hovered-border-color;
+      }
+    }
+  }
+}
