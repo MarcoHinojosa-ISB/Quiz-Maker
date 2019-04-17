@@ -2,16 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './header/index.jsx';
 import { Home } from './home/index.jsx';
-
-class PageNotFound extends React.Component {
-  render(){
-    return (
-      <div id="page-not-found">
-        <h1>404: Page not found</h1>
-      </div>
-    );
-  }
-}
+import { PageNotFound } from './page-not-found/index.jsx';
 
 class App extends React.Component {
   render(){

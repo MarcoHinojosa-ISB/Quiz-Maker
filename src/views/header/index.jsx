@@ -1,7 +1,11 @@
 import React from 'react';
-import { Menu } from './components/menu/index.jsx';
+import { Menu } from './components/menu.jsx';
 
 class Header extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
   render(){
     return (
       <div id="header">
