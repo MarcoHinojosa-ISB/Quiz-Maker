@@ -1,4 +1,4 @@
-import { App } from './views/app.jsx';
+import { App } from './components/app.jsx';
 import React from 'react';
 import ReactDom from 'react-dom';
 

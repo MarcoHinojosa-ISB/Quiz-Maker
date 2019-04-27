@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Header } from './header/index.jsx';
-import { Home } from './home/index.jsx';
-import { PageNotFound } from './page-not-found/index.jsx';
+import { Header } from './partials/header/index.jsx';
+import { Home } from './views/home/index.jsx';
+import { PageNotFound } from './views/page-not-found/index.jsx';
 
 class App extends React.Component {
   render(){

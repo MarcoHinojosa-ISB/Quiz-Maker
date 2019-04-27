@@ -1,6 +1,6 @@
 @import "mixins";
-@import "views/header";
-@import "views/home";
+@import "components/partials/header";
+@import "components/views/home";
 
 body{
   $bg-color: #abcdef;
