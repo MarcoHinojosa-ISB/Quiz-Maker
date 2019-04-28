@@ -9,12 +9,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+var quizRoutes = require('./backend/routes/quizzes.route.js');
+
 app.use('/node-modules', express.static(__dirname + '/node-modules'));
 app.use('/src', express.static(__dirname + '/src'));
 
 app.use('/', function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
+
+app.use('/api', quizRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

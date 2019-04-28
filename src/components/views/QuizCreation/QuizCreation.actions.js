@@ -1,3 +1,5 @@
+import Axios from 'axios';
+
 const editTitle = (title) => {
   return {
     type: 'EDIT_TITLE',
@@ -26,9 +28,28 @@ const removeQuestion = (index) => {
   };
 };
 
+const clearForm = () => {
+  return {
+    type: 'CLEAR_FORM'
+  };
+};
+
+const createQuiz = (quiz) => {
+  return (dispatch) => {
+    Axios.post('/api/quiz', quiz)
+    .then((result) => {
+      dispatch(clearForm());
+    }).catch((error) => {
+      console.log(error)
+    });
+  };
+};
+
 export {
   editTitle,
   editQuestion,
   addQuestion,
-  removeQuestion
+  removeQuestion,
+  clearForm,
+  createQuiz
 };

@@ -1,3 +1,6 @@
+var bodyParser = require('body-parser');
+var quizRoutes = require('./backend/routes/quizzes.route.js');
+
 const config = {
   module: {
     rules: [
@@ -21,6 +24,12 @@ const config = {
   },
   devServer: {
     historyApiFallback: true,
+    before(app){
+      app.use(bodyParser.json());
+      app.use(bodyParser.urlencoded({ extended: false }));
+
+      app.use('/api', quizRoutes);
+    }
   },
 };
 

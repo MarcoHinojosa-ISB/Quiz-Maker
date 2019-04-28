@@ -3,19 +3,32 @@ import CreateTitle from './sub-components/CreateTitle.jsx';
 import CreateQuestion from './sub-components/CreateQuestion.jsx';
 import PropTypes from 'prop-types';
 import Questions from './sub-components/Questions.jsx';
-import { editTitle, editQuestion, addQuestion, removeQuestion } from './QuizCreation.actions.js';
+import { editTitle, editQuestion, addQuestion, removeQuestion, createQuiz, clearForm } from './QuizCreation.actions.js';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 class QuizCreation extends React.Component {
   constructor(props){
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.createQuiz({
+      title: this.props.title,
+      questions: this.props.questions
+    });
+  }
+
+  componentWillUnmount(){
+    this.props.clearForm();
   }
 
   render(){
     return (
       <div id="quiz-creation">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <CreateTitle
             title={this.props.title}
             editTitle={this.props.editTitle} />
@@ -37,15 +50,13 @@ QuizCreation.propTypes = {
   questions: PropTypes.array,
   editTitle: PropTypes.func,
   editQuestion: PropTypes.func,
-  addQuestion: PropTypes.func
+  addQuestion: PropTypes.func,
+  createQuiz: PropTypes.func,
+  clearForm: PropTypes.func
 };
 
 function mapStateToProps(state){
-  return {
-    title: state.quizCreation.title,
-    question: state.quizCreation.question,
-    questions: state.quizCreation.questions
-  };
+  return Object.assign({}, state.quizCreation);
 }
 
 function mapDispatchToProps(dispatch){
@@ -53,7 +64,9 @@ function mapDispatchToProps(dispatch){
     editTitle: (title) => dispatch(editTitle(title)),
     editQuestion: (question) => dispatch(editQuestion(question)),
     addQuestion: (question) => dispatch(addQuestion(question)),
-    removeQuestion: (index) => dispatch(removeQuestion(index))
+    removeQuestion: (index) => dispatch(removeQuestion(index)),
+    createQuiz: (quiz) => dispatch(createQuiz(quiz)),
+    clearForm: () => dispatch(clearForm())
   };
 }
 

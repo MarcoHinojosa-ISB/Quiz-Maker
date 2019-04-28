@@ -1,10 +1,11 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import quizCreationReducer from './components/views/QuizCreation/QuizCreation.reducer';
 
-const mainReducer = combineReducers({
+const rootReducer = combineReducers({
   quizCreation: quizCreationReducer
 });
 
-const store = createStore(mainReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;

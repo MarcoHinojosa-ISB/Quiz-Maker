@@ -13,7 +13,6 @@ const quizCreationReducer = (state = initialState, action) => {
           title: action.title
         });
     case 'EDIT_QUESTION':
-      console.log(action);
       return Object.assign({},
         state,
         {
