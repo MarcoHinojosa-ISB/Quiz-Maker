@@ -1,0 +1,13 @@
+@import "stylesheets/mixins";
+@import "components/partials/Header/Header";
+@import "components/views/Home/Home";
+@import "components/views/QuizCreation/QuizCreation";
+
+body{
+  $bg-color: #abcdef;
+
+  background-color: $bg-color;
+  box-sizing: border-box;
+  margin: 0 0;
+  font-family: Verdana, Geneva, sans-serif;
+}

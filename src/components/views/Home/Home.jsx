@@ -1,10 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class Home extends React.Component {
   constructor(props){
     super(props);
   }
-  
+
   render(){
     return (
       <div id="home">
@@ -18,4 +19,4 @@ class Home extends React.Component {
   }
 }
 
-export { Home };
+export default withRouter(Home);

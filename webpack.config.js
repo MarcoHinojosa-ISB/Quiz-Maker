@@ -13,12 +13,15 @@ const config = {
       }
     ]
   },
-  entry: ['./src/entry.js', './src/stylesheets/_entry.scss'],
+  entry: ['./src/entry.js', './src/entry.scss'],
   output: {
     path: __dirname + '/src/build',
     publicPath: '/src/build',
     filename: 'bundle.js'
-  }
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
 };
 
 module.exports = config;

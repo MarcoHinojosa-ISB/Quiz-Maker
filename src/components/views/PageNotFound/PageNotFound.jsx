@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class PageNotFound extends React.Component {
   render(){
@@ -10,4 +11,4 @@ class PageNotFound extends React.Component {
   }
 }
 
-export { PageNotFound };
+export default withRouter(PageNotFound);

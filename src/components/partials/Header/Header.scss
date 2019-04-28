@@ -2,6 +2,7 @@
   $bg-color: #ccbbcc;
   $border-color: #aa99bb;
   $hovered-border-color: #cc7179;
+  $color: #000000;
 
   background-color: $bg-color;
   border-bottom: 1px solid $border-color;
@@ -10,6 +11,10 @@
   h1.title{
     display: inline-block;
     margin: 0 0;
+
+    >a{
+      @include removeLinkStyle($color);
+    }
   }
 
   ul.navigation{
@@ -25,6 +30,10 @@
 
       &:hover{
         border-bottom: 2px solid $hovered-border-color;
+      }
+
+      >a{
+        @include removeLinkStyle($color);
       }
     }
   }

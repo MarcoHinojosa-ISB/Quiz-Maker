@@ -1,5 +1,6 @@
 import React from 'react';
-import { Menu } from './components/menu.jsx';
+import { Link } from 'react-router-dom';
+import Menu from './sub-components/Menu.jsx';
 
 class Header extends React.Component{
   constructor(props){
@@ -9,11 +10,11 @@ class Header extends React.Component{
   render(){
     return (
       <div id="header">
-        <h1 className="title">Quiz Maker</h1>
+        <h1 className="title"><Link to="/">Quiz Maker</Link></h1>
         <Menu />
       </div>
     );
   }
 }
 
-export { Header };
+export default Header;

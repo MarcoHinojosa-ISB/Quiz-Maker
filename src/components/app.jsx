@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Header } from './partials/header/index.jsx';
-import { Home } from './views/home/index.jsx';
-import { PageNotFound } from './views/page-not-found/index.jsx';
+import Header from './partials/Header/Header.jsx';
+import Home from './views/Home/Home.jsx';
+import QuizCreation from './views/QuizCreation/QuizCreation.jsx';
+import PageNotFound from './views/PageNotFound/PageNotFound.jsx';
 
 class App extends React.Component {
   render(){
@@ -12,7 +13,8 @@ class App extends React.Component {
           <Route render={(props) => <Header {...props}/>} />
 
           <Switch>
-            <Route exact path="/" render={(props) => <Home {...props}/>} />
+            <Route exact path="/" component={Home} />
+            <Route path="/quiz-creation" component={QuizCreation} />
             <Route component={PageNotFound} />
           </Switch>
         </div>
@@ -21,4 +23,4 @@ class App extends React.Component {
   }
 }
 
-export { App };
+export default App;
