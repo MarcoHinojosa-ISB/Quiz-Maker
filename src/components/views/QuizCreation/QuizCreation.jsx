@@ -15,10 +15,13 @@ class QuizCreation extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createQuiz({
-      title: this.props.title,
-      questions: this.props.questions
-    });
+
+    if(this.props.questions.length > 0 && this.props.title.trim().length > 0){
+      this.props.createQuiz({
+        title: this.props.title,
+        questions: this.props.questions
+      });
+    }
   }
 
   componentWillUnmount(){

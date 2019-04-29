@@ -1,25 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class CreateTitle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
+const CreateTitle = ({ title, editTitle }) => {
+  const handleChange = (e) => {
+    editTitle(e.target.value);
+  };
 
-  handleChange(e){
-    this.props.editTitle(e.target.value);
-  }
-
-  render(){
-    return (
-      <div className="create-title">
-        <h3>Title</h3>
-        <input type="text" value={this.props.title} onChange={this.handleChange}/>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="create-title">
+      <h3>Title</h3>
+      <input type="text" value={title} onChange={handleChange}/>
+    </div>
+  );
+};
 
 CreateTitle.propTypes = {
   title: PropTypes.string,

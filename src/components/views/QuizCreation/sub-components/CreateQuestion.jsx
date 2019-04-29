@@ -1,38 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class CreateQuestion extends React.Component{
-  constructor(props){
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.addQuestion = this.addQuestion.bind(this);
-  }
+const CreateQuestion = ({ question, editQuestion, addQuestion }) => {
+  const handleChange = (e) => {
+    editQuestion(e.target.value);
+  };
 
-  handleChange(e){
-    this.props.editQuestion(e.target.value);
-  }
-
-  addQuestion(){
-    if(this.props.question.trim().length > 0){
-      this.props.addQuestion(this.props.question);
-      this.props.editQuestion('');
+  const add = () => {
+    if(question.trim().length > 0){
+      addQuestion(question);
+      editQuestion('');
     }
-  }
+  };
 
-  render(){
-    return (
-      <div className="create-question">
-        <h4>Question</h4>
-        <textarea
-          value={this.props.question}
-          onChange={this.handleChange}>
-        </textarea>
-        <button type="button" onClick={this.addQuestion}>Add</button>
-        <button type="submit">Submit</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="create-question">
+      <h4>Question</h4>
+      <textarea
+        value={question}
+        onChange={handleChange}>
+      </textarea>
+      <button type="button" onClick={add}>Add</button>
+      <button type="submit">Submit</button>
+    </div>
+  );
+};
 
 CreateQuestion.propTypes = {
   question: PropTypes.string,

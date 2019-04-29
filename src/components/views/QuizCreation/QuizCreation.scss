@@ -1,10 +1,11 @@
 #quiz-creation{
   $bg-color: #f7f7f7;
   $border-color: #b0b0b0;
-  $btn-color: #ffffff;
+  $btn-font-color: #ffffff;
   $btn-bg-color: #337ab7;
   $btn-submit-bg-color: #5cb85c;
   $input-border-color: #b0b0b0;
+  $list-bg-color: #ffffff;
 
   >form{
     background-color: $bg-color;
@@ -29,7 +30,7 @@
     button{
       cursor: pointer;
       background-color: $btn-bg-color;
-      color: $btn-color;
+      color: $btn-font-color;
       padding: 7px 20px;
       border: none;
       outline: none;
@@ -37,7 +38,7 @@
 
       &[type="submit"]{
         background-color: $btn-submit-bg-color;
-        color: $btn-color;
+        color: $btn-font-color;
         float: right;
       }
     }
@@ -60,6 +61,20 @@
     >h3{
       margin-bottom: 0px;
       border-bottom: 1px solid $border-color;
+    }
+    ul{
+      list-style: none;
+      padding-left: 5px;
+
+      li{
+        padding: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:nth-of-type(even){
+          background-color: $list-bg-color;
+        }
+      }
     }
   }
 }
