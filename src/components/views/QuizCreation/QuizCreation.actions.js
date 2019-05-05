@@ -1,30 +1,8 @@
 import Axios from 'axios';
 
-const editTitle = (title) => {
+const addQuestion = () => {
   return {
-    type: 'EDIT_TITLE',
-    title
-  };
-};
-
-const editQuestion = (question) => {
-  return {
-    type: 'EDIT_QUESTION',
-    question
-  };
-};
-
-const addQuestion = (question) => {
-  return {
-    type: 'ADD_QUESTION',
-    question
-  };
-};
-
-const removeQuestion = (index) => {
-  return {
-    type: 'REMOVE_QUESTION',
-    index
+    type: 'ADD_QUESTION'
   };
 };
 
@@ -37,19 +15,50 @@ const clearForm = () => {
 const createQuiz = (quiz) => {
   return (dispatch) => {
     Axios.post('/api/quiz', quiz)
-    .then((result) => {
-      dispatch(clearForm());
-    }).catch((error) => {
-      console.log(error)
-    });
+      .then((result) => {
+        dispatch(quizCreated());
+        setTimeout(() => {
+          dispatch(clearForm());
+        }, 1000);
+      }).catch((error) => {
+        console.log(error)
+      });
+  };
+};
+
+const editQuestion = (text) => {
+  return {
+    type: 'EDIT_QUESTION',
+    text
+  };
+};
+
+const editTitle = (title) => {
+  return {
+    type: 'EDIT_TITLE',
+    title
+  };
+};
+
+const quizCreated = () => {
+  return {
+    type: 'QUIZ_CREATED'
+  };
+};
+
+const removeQuestion = (index) => {
+  return {
+    type: 'REMOVE_QUESTION',
+    index
   };
 };
 
 export {
-  editTitle,
-  editQuestion,
   addQuestion,
-  removeQuestion,
   clearForm,
-  createQuiz
+  createQuiz,
+  editQuestion,
+  editTitle,
+  quizCreated,
+  removeQuestion,
 };

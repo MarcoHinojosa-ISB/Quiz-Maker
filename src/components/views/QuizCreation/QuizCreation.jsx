@@ -36,9 +36,11 @@ class QuizCreation extends React.Component {
             title={this.props.title}
             editTitle={this.props.editTitle} />
           <Questions
-            questions={this.props.questions} />
+            questions={this.props.questions}
+            quizCreated={this.props.quizCreated} />
           <CreateQuestion
-            question={this.props.question}
+            disabled={this.props.disabled}
+            newQuestion={this.props.newQuestion}
             editQuestion={this.props.editQuestion}
             addQuestion={this.props.addQuestion} />
         </form>
@@ -48,14 +50,18 @@ class QuizCreation extends React.Component {
 }
 
 QuizCreation.propTypes = {
-  title: PropTypes.string,
-  question: PropTypes.string,
+  // properties
+  disabled: PropTypes.bool,
+  newQuestion: PropTypes.string,
   questions: PropTypes.array,
-  editTitle: PropTypes.func,
-  editQuestion: PropTypes.func,
+  quizCreated: PropTypes.bool,
+  title: PropTypes.string,
+  // methods
   addQuestion: PropTypes.func,
+  clearForm: PropTypes.func,
   createQuiz: PropTypes.func,
-  clearForm: PropTypes.func
+  editQuestion: PropTypes.func,
+  editTitle: PropTypes.func,
 };
 
 function mapStateToProps(state){
@@ -64,12 +70,12 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    editTitle: (title) => dispatch(editTitle(title)),
-    editQuestion: (question) => dispatch(editQuestion(question)),
-    addQuestion: (question) => dispatch(addQuestion(question)),
-    removeQuestion: (index) => dispatch(removeQuestion(index)),
+    addQuestion: () => dispatch(addQuestion()),
+    clearForm: () => dispatch(clearForm()),
     createQuiz: (quiz) => dispatch(createQuiz(quiz)),
-    clearForm: () => dispatch(clearForm())
+    editQuestion: (text) => dispatch(editQuestion(text)),
+    editTitle: (title) => dispatch(editTitle(title)),
+    removeQuestion: (index) => dispatch(removeQuestion(index)),
   };
 }
 
