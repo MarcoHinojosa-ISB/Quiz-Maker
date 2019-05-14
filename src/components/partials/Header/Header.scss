@@ -1,11 +1,10 @@
 #header{
-  $bg-color: #ccbbcc;
-  $border-color: #aa99bb;
-  $hovered-border-color: #cc7179;
-  $color: #000000;
+  $bg-color: #333333;
+  $hovered-border-color: #dddddd;
+  $color: #dddddd;
 
   background-color: $bg-color;
-  border-bottom: 1px solid $border-color;
+  box-shadow: 0px 1px 3px 0px #777777;
   padding: 10px 20px;
 
   h1.title{
@@ -26,7 +25,6 @@
       cursor: pointer;
       display: inline-block;
       margin: 0 5px;
-      transition: 0.1s;
 
       &:hover{
         border-bottom: 2px solid $hovered-border-color;
