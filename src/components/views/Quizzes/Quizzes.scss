@@ -1,0 +1,32 @@
+#quizzes{
+    $bg-color: #f7f7f7;
+    $color: #333333;
+    $border-color: #666666;
+    
+    .panel{
+        background-color: $bg-color;
+        box-shadow: 0px 0px 3px 0px #777777;
+        margin: 20px auto;
+        padding: 10px 20px;
+        width: 600px;
+        @include border-radius(10px);
+    }
+
+    .quiz-list{
+        list-style: none;
+        padding-left: 0px;
+
+        li{
+            padding: 10px 0px;
+
+            a{
+                @include removeLinkStyle($color);
+            }
+
+            &+li{
+                border-top: 1px solid $border-color;
+            }
+        }
+    }
+}
+

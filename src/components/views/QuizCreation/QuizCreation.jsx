@@ -31,7 +31,7 @@ class QuizCreation extends React.Component {
   render(){
     return (
       <div id="quiz-creation">
-        <form onSubmit={this.handleSubmit}>
+        <form className="panel" onSubmit={this.handleSubmit}>
           <CreateTitle
             title={this.props.title}
             editTitle={this.props.editTitle} />
