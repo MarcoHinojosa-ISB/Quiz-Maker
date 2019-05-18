@@ -1,32 +1,52 @@
 #quizzes{
-    $bg-color: #f7f7f7;
-    $color: #333333;
-    $border-color: #666666;
-    
-    .panel{
-        background-color: $bg-color;
-        box-shadow: 0px 0px 3px 0px #777777;
-        margin: 20px auto;
-        padding: 10px 20px;
-        width: 600px;
-        @include border-radius(10px);
+  $color: #333333;
+  $bg-color: #f7f7f7;
+  $border-color: #666666;
+  $pagination-color: #1ca8d5;
+
+  .list{
+    list-style: none;
+    padding-left: 0px;
+
+    li{
+      padding: 10px 0px;
+
+      a{
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 80%;
+        @include removeLinkStyle($color);
+      }
+
+      span{
+        display: inline-block;
+        width: 20%;
+      }
+      &+li{
+        border-top: 1px solid $border-color;
+      }
     }
+  }
 
-    .quiz-list{
-        list-style: none;
-        padding-left: 0px;
+  .pagination{
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
 
-        li{
-            padding: 10px 0px;
+    li{
+      border: 1px solid $pagination-color;
+      color: $border-color;
+      cursor: pointer;
+      display: inline-block;
+      padding: 5px;
 
-            a{
-                @include removeLinkStyle($color);
-            }
-
-            &+li{
-                border-top: 1px solid $border-color;
-            }
-        }
+      &.current-page{
+        background-color: $pagination-color;
+        color: $bg-color;
+        cursor: default;
+      }
     }
+  }
 }
 

@@ -1,20 +1,10 @@
 #quiz-creation{
-  $bg-color: #f7f7f7;
   $border-color: #b0b0b0;
   $btn-font-color: #ffffff;
   $btn-bg-color: #337ab7;
   $btn-submit-bg-color: #5cb85c;
   $input-border-color: #b0b0b0;
   $list-bg-color: #ffffff;
-
-  .panel{
-    background-color: $bg-color;
-    box-shadow: 0px 0px 3px 0px #777777;
-    margin: 20px auto;
-    padding: 10px 20px;
-    width: 600px;
-    @include border-radius(10px);
-  }
 
   .create-question{
     h4{
