@@ -7,12 +7,12 @@ const config = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: '/node-modules/'
+        exclude: '/node_modules/'
       },
       {
         test: /\.scss$/,
         loader: 'style-loader!css-loader!sass-loader',
-        exclude: '/node-modules/'
+        exclude: '/node_modules/'
       }
     ]
   },
