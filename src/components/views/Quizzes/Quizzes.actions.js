@@ -1,10 +1,10 @@
 import Axios from 'axios';
 
-const getQuizzes = (limit, offset) => {
+const getQuizzes = (pageNumber) => {
 	return (dispatch) => {
-		Axios.get(`/api/quizzes?limit=${limit}&offset=${offset * limit}`)
+		Axios.get(`/api/quizzes?page=${pageNumber}`)
 		.then((result) => {
-			dispatch(updateList(result.data, offset+1));
+			dispatch(updateList(result.data, pageNumber));
 		})
 		.catch((error) => {
 			console.log(error);
@@ -21,6 +21,5 @@ const updateList = (list, selectedPage) => {
 }
 
 export {
-	getQuizzes,
-	updateList
+	getQuizzes
 };

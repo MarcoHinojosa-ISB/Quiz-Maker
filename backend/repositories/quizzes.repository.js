@@ -1,18 +1,19 @@
+require('dotenv').config();
+
 const pg = require('pg');
 const QuizModel = require('../models/quiz.js');
+const QuestionModel = require('../models/question.js');
 const format = require('pg-format');
+const connectionString = process.env.DATABASE_URL;
 
 const pool = new pg.Pool({
-  user: 'postgres',
-  host: '127.0.0.1',
-  database: 'quiz_maker',
-  password: 'postgres',
-  port: 5432
-});
+  connectionString
+})
 
 class QuizzesRepository {
   constructor(){
     this.Quiz = new QuizModel();
+    this.Question = new QuestionModel();
   }
 
   async createQuiz(data, callback){
@@ -37,16 +38,30 @@ class QuizzesRepository {
         FROM quizzes, questions 
         WHERE quizzes.id = questions.quiz_id
         GROUP BY quizzes.id
-        ORDER BY quizzes.date_created DESC LIMIT ${params.limit} OFFSET ${params.offset}`, []);
+        ORDER BY quizzes.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
 
-      const count = await pool.query(`SELECT quizzes.*
+      const total = await pool.query(`SELECT quizzes.*
         FROM quizzes ORDER BY quizzes.date_created DESC`, []);
       
-      let result = {
-        quizzes: await quizzes.rows.map( (row) => {
-          return this.Quiz.convertSqlToJson(row);
-        }),
-        count: count.rows.length
+      const result = {
+        quizzes: await quizzes.rows.map((row) => this.Quiz.convertSqlToJson(row)),
+        total: total.rows.length
+      }
+
+      callback(null, result);
+    } catch(error) {
+      callback(error, null);
+    }
+  }
+
+  async getQuiz(params, callback){
+    try{
+      const quiz = await pool.query(`SELECT * FROM quizzes WHERE id = ${params.id}`, []);
+      const questions = await pool.query(`SELECT * FROM questions WHERE quiz_id = ${params.id}`, []);
+
+      const result = {
+        quiz: await this.Quiz.convertSqlToJson(quiz.rows[0]),
+        questions: await questions.rows.map((row) => this.Question.convertSqlToJson(row)),
       }
 
       callback(null, result);

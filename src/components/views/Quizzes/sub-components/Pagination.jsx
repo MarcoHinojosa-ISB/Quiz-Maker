@@ -5,7 +5,6 @@ const Pagination = ({handlePageClick, pageNum, totalPages}) => {
   let pages = [];
 
   for(let i=1; i<=totalPages; i++){
-    console.log(i === pageNum)
     pages.push(
       <li key={"pagination-page-"+i} className={i === pageNum ? "current-page" : ""} onClick={handlePageClick.bind(this, i)}>
         {i}
@@ -19,5 +18,11 @@ const Pagination = ({handlePageClick, pageNum, totalPages}) => {
     </ul>
   )
 };
+
+Pagination.propTypes = {
+  handlePageClick: PropTypes.func,
+  pageNum: PropTypes.number,
+  totalPages: PropTypes.number
+}
 
 export default Pagination;

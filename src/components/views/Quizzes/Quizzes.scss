@@ -2,7 +2,18 @@
   $color: #333333;
   $bg-color: #f7f7f7;
   $border-color: #666666;
+  $btn-bg-color: #1ca8d5;
   $pagination-color: #1ca8d5;
+
+  .loading{
+    color: #777777;
+    font-size: 40px;
+    text-align: center;
+
+    .loading-text{
+      font-size: 20px;
+    }
+  }
 
   .list{
     list-style: none;
@@ -11,18 +22,29 @@
     li{
       padding: 10px 0px;
 
-      a{
+      .description{
+        .quiz-title{
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 80%;
+        }
+  
+        .quiz-size{
+          display: inline-block;
+          width: 20%;
+        }
+      }
+      
+      .links a{
+        background-color: $btn-bg-color;
         display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 80%;
-        @include removeLinkStyle($color);
+        font-size: 10px;
+        margin: 0 5px 0 0;
+        padding: 3px 15px;
+        @include removeLinkStyle($bg-color);
       }
 
-      span{
-        display: inline-block;
-        width: 20%;
-      }
       &+li{
         border-top: 1px solid $border-color;
       }

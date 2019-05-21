@@ -1,7 +1,7 @@
 const initialState = {
+  loading: true,
   pageNum: 1,
   quizzes: [],
-  quizzesPerPage: 8,
   totalPages: 1
 }
 
@@ -11,9 +11,10 @@ const quizzesReducer = (state = initialState, action) => {
       return Object.assign({}, 
         state, 
         {
+          loading: false,
           pageNum: action.selectedPage,
           quizzes: action.list.quizzes,
-          totalPages: Math.ceil(action.list.count / state.quizzesPerPage)
+          totalPages: Math.ceil(action.list.total / 8)
         }
       );
     default:

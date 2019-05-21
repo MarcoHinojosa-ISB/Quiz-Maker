@@ -13,6 +13,12 @@ quizRoutes.post('/quiz', (req, res) => {
 quizRoutes.get('/quizzes', (req, res) => {
   quizzesRepository.getQuizzes(req.query, (err, result) => {
     err ? res.status(500).send(err) : res.status(200).send(result);
+  });
+});
+
+quizRoutes.get('/quiz', (req, res) => {
+  quizzesRepository.getQuiz(req.query, (err, result) => {
+    err ? res.status(500).send(err) : res.status(200).send(result);
   })
 })
 
