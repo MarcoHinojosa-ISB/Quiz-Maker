@@ -23,7 +23,7 @@ class Quizzes extends React.Component{
 
   render(){
     let content;
-    console.log(this.props.quizzes)
+
     if(this.props.loading) {
       content = (
         <div className="panel loading">
@@ -40,6 +40,7 @@ class Quizzes extends React.Component{
     } else {
       content = (
         <div className="panel">
+          <h3 className="title">Current Quizzes</h3>
           <List quizzes={this.props.quizzes} />
           <Pagination 
             totalPages={this.props.totalPages}

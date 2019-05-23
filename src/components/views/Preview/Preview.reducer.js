@@ -1,4 +1,5 @@
 const initialState = {
+  loading: true,
   quiz: {},
   questions: []
 }
@@ -9,6 +10,7 @@ const previewReducer = (state = initialState, action) => {
       return Object.assign({}, 
         state,
         {
+          loading: false,
           quiz: action.quizData.quiz,
           questions: action.quizData.questions
         }

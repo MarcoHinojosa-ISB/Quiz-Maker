@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const List = ({quizzes}) => {
-  let listElements = quizzes.map((quiz, i) => {
+  let listOfQuizzes = quizzes.map((quiz, i) => {
     return (
       <li key={quiz.title+i}>
         <div className="description">
@@ -20,7 +20,7 @@ const List = ({quizzes}) => {
 
   return (
     <ul className="list">
-      {listElements}
+      {listOfQuizzes}
     </ul>
   );
 }
