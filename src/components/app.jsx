@@ -17,9 +17,9 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/preview/:id" component={Preview} />
             <Route path="/quiz-creation" component={QuizCreation} />
-            <Route path="/quiz-in-progress/:id" component={QuizInProgress} />
+            <Route path="/quizzes/preview/:id" component={Preview} />
+            <Route path="/quizzes/quiz-in-progress/:id" component={QuizInProgress} />
             <Route path="/quizzes" component={Quizzes} />
             <Route component={PageNotFound} />
           </Switch>
