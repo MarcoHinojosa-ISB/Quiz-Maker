@@ -1,16 +1,6 @@
 #preview{
   $border-color: #666666;
 
-  .loading{
-    color: $border-color;
-    font-size: 40px;
-    text-align: center;
-
-    .loading-text{
-      font-size: 20px;
-    }
-  }
-
   .title{
     text-align: center;
   }
@@ -19,10 +9,10 @@
     list-style-type: none;
     padding-left: 0;
 
-    .question{
-      padding: 5px 0 100px 0;
+    li{
+      padding: 15px;
 
-      &+.question{
+      &+li{
         border-top: 1px solid $border-color;
       }
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import List from './sub-components/List.jsx';
+import Loading from '../../partials/Loading/Loading.jsx';
 import Pagination from './sub-components/Pagination.jsx';
 import PropTypes from 'prop-types';
 import { getQuizzes } from './Quizzes.actions';
@@ -25,21 +26,12 @@ class Quizzes extends React.Component{
     let content;
 
     if(this.props.loading) {
-      content = (
-        <div className="panel loading">
-          <i className="fa fa-spinner fa-spin"></i>
-          <div className="loading-text">Loading</div> 
-        </div>
-      )
+      content = <Loading />
     } else if(this.props.quizzes.length === 0) {
-      content = (
-        <div className="panel">
-          <h3>No quizzes are available</h3>
-        </div>
-      )
+      content = <h3>No quizzes are available</h3>
     } else {
       content = (
-        <div className="panel">
+        <div>
           <h3 className="title">Current Quizzes</h3>
           <List quizzes={this.props.quizzes} />
           <Pagination 
@@ -52,7 +44,9 @@ class Quizzes extends React.Component{
 
     return (
       <div id="quizzes">
-        {content}
+        <div className="panel">
+          {content}
+        </div>
       </div>
     );
   }

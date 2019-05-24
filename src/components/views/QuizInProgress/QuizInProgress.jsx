@@ -1,12 +1,13 @@
 import React from 'react';
 import List from './sub-components/List.jsx';
 import Loading from '../../partials/Loading/Loading.jsx';
+import Submit from './sub-components/Submit.jsx';
 import Title from './sub-components/Title.jsx';
-import { getQuiz } from './Preview.actions';
+import { getQuiz } from './QuizInProgress.actions';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-class Preview extends React.Component{
+class QuizInProgress extends React.Component{
   constructor(props){
     super(props);
   }
@@ -19,36 +20,38 @@ class Preview extends React.Component{
     let content;
 
     if(this.props.loading) {
-      content = <Loading />
+      content = <Loading />;
     } else {
       content = (
         <div>
           <Title title={this.props.quiz.title} />
           <List questions={this.props.questions} />
+          <Submit />
         </div>
       );
     }
+
     return (
-      <div id="preview">
+      <div id="quiz-in-progress">
         <div className="panel">
           {content}
         </div>
       </div>
-    )
+    );
   }
 }
 
-function mapStateToProps(state){
-  return Object.assign({}, state.preview);
+function mapStateToProps(state) {
+  return Object.assign({}, state.quizInProgress)
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
   return {
     getQuiz: (id) => dispatch(getQuiz(id))
   }
 }
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps, 
   mapDispatchToProps
-)(withRouter(Preview));
+)(withRouter(QuizInProgress));

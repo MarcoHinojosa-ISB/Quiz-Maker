@@ -1,7 +1,9 @@
 @import "stylesheets/mixins";
 @import "components/partials/Header/Header";
+@import "components/partials/Loading/Loading";
 @import "components/views/Home/Home";
 @import "components/views/QuizCreation/QuizCreation";
+@import "components/views/QuizInProgress/QuizInProgress";
 @import "components/views/Quizzes/Quizzes";
 @import "components/views/Preview/Preview";
 

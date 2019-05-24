@@ -6,6 +6,7 @@ const List = ({questions}) => {
     return (
       <li key={question.questionText+i}>
         <h3 className="question">{(i+1)+'. '+question.questionText}</h3>
+        <textarea className="answer"></textarea>
       </li>
     )
   })

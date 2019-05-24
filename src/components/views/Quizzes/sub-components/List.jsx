@@ -1,23 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Description from './Description.jsx'; 
+import Links from './Links.jsx';
 import PropTypes from 'prop-types';
 
 const List = ({quizzes}) => {
   let listOfQuizzes = quizzes.map((quiz, i) => {
     return (
       <li key={quiz.title+i}>
-        <div className="description">
-          <span className="quiz-title">{quiz.title}</span>
-          <span className="quiz-size">({quiz.numberOfQuestions} questions)</span>
-        </div>
-        <div className="links">
-          <Link to="/">Start</Link>
-          <Link to={"/preview/"+quiz.id}>Preview</Link>
-        </div>
+        <Description title={quiz.title} length={quiz.numberOfQuestions} />
+        <Links quizId={quiz.id} />
       </li>
     )
   })
-
+  
   return (
     <ul className="list">
       {listOfQuizzes}

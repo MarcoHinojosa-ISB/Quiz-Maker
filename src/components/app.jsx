@@ -5,6 +5,7 @@ import Home from './views/Home/Home.jsx';
 import PageNotFound from './views/PageNotFound/PageNotFound.jsx';
 import Preview from './views/Preview/Preview.jsx';
 import QuizCreation from './views/QuizCreation/QuizCreation.jsx';
+import QuizInProgress from './views/QuizInProgress/QuizInProgress.jsx';
 import Quizzes from './views/Quizzes/Quizzes.jsx';
 
 class App extends React.Component {
@@ -16,9 +17,10 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/quiz-creation" component={QuizCreation} />
-            <Route path="/quizzes" component={Quizzes} />
             <Route path="/preview/:id" component={Preview} />
+            <Route path="/quiz-creation" component={QuizCreation} />
+            <Route path="/quiz-in-progress/:id" component={QuizInProgress} />
+            <Route path="/quizzes" component={Quizzes} />
             <Route component={PageNotFound} />
           </Switch>
         </div>
