@@ -18,18 +18,13 @@ class Quizzes extends React.Component{
     this.props.getQuizzes(this.props.pageNum);
   }
 
-  handlePageClick(selectedPage){
-    this.props.getQuizzes(selectedPage)
-  }
-
   render(){
-    console.log(this.props)
     let content;
 
     if(this.props.loading) {
-      content = <Loading />
+      content = <Loading />;
     } else if(this.props.quizzes.length === 0) {
-      content = <h3>No quizzes are available</h3>
+      content = <h3>No quizzes are available</h3>;
     } else {
       content = (
         <div>
@@ -38,9 +33,9 @@ class Quizzes extends React.Component{
           <Pagination 
             totalPages={this.props.totalPages}
             pageNum={this.props.pageNum} 
-            handlePageClick={this.handlePageClick} />
+            getQuizzes={this.props.getQuizzes} />
         </div>
-      )
+      );
     }
 
     return (
@@ -56,12 +51,13 @@ class Quizzes extends React.Component{
 Quizzes.propTypes = {
   // properties
   loading: PropTypes.bool,
+  match: PropTypes.object,
   pageNum: PropTypes.number,
   quizzes: PropTypes.array,
   totalPages: PropTypes.number,
   // methods
   getQuizzes: PropTypes.func
-}
+};
 
 function mapStateToProps(state){
   return Object.assign({}, state.quizzes);

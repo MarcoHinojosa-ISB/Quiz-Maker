@@ -10,18 +10,19 @@ const List = ({quizzes, urlPath}) => {
         <Description title={quiz.title} length={quiz.numberOfQuestions} />
         <Links quizId={quiz.id} urlPath={urlPath} />
       </li>
-    )
-  })
+    );
+  });
   
   return (
     <ul className="list">
       {listOfQuizzes}
     </ul>
   );
-}
+};
 
 List.propTypes = {
-  quizzes: PropTypes.array
+  quizzes: PropTypes.array,
+  urlPath: PropTypes.string
 };
 
 export default List;

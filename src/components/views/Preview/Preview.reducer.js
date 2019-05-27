@@ -2,11 +2,13 @@ const initialState = {
   loading: true,
   quiz: {},
   questions: []
-}
+};
 
 const previewReducer = (state = initialState, action) => {
   switch(action.type){
-    case "DISPLAY_QUIZ":
+    case 'CLEAR': 
+      return initialState;
+    case 'DISPLAY_QUIZ':
       return Object.assign({}, 
         state,
         {
@@ -18,6 +20,6 @@ const previewReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default previewReducer;

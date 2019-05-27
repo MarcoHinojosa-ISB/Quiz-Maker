@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './partials/Header/Header.jsx';
 import Home from './views/Home/Home.jsx';
 import PageNotFound from './views/PageNotFound/PageNotFound.jsx';
@@ -7,6 +6,7 @@ import Preview from './views/Preview/Preview.jsx';
 import QuizCreation from './views/QuizCreation/QuizCreation.jsx';
 import QuizInProgress from './views/QuizInProgress/QuizInProgress.jsx';
 import Quizzes from './views/Quizzes/Quizzes.jsx';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
   render(){

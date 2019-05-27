@@ -15,13 +15,13 @@ const clearForm = () => {
 const createQuiz = (quiz) => {
   return (dispatch) => {
     Axios.post('/api/quiz', quiz)
-      .then((result) => {
+      .then(() => {
         dispatch(quizCreated());
         setTimeout(() => {
           dispatch(clearForm());
         }, 1000);
       }).catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   };
 };

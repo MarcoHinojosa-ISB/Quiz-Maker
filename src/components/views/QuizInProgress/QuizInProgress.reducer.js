@@ -6,7 +6,9 @@ const initialState = {
 
 const QuizInProgressReducer = (state = initialState, action) => {
   switch(action.type){
-    case "DISPLAY_QUIZ":
+    case 'CLEAR':
+      return initialState;
+    case 'DISPLAY_QUIZ':
       return Object.assign({}, 
         state,
         {

@@ -1,5 +1,18 @@
 import Axios from 'axios';
 
+const clear = () => {
+  return {
+    type: 'CLEAR'
+  };
+};
+
+const displayQuiz = (quizData) => {
+  return {
+    type: 'DISPLAY_QUIZ',
+    quizData
+  };
+};
+
 const getQuiz = (id) => {
   return (dispatch) => {
     Axios.get(`/api/quiz?id=${id}`)
@@ -8,17 +21,11 @@ const getQuiz = (id) => {
     })
     .catch((error) => {
       console.log(error);
-    })
-  }
-}
-
-const displayQuiz = (quizData) => {
-  return {
-    type: 'DISPLAY_QUIZ',
-    quizData
-  }
-}
+    });
+  };
+};
 
 export {
+  clear,
   getQuiz
-}
+};

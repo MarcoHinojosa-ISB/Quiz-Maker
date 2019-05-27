@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Loading = () => {
+const Loading = ({customMessage}) => {
   return (
     <div className="loading">
       <i className="fa fa-spinner fa-spin"></i>
-      <div className="loading-text">Loading</div> 
+      <div className="loading-text">{customMessage ? customMessage : "Loading"}</div> 
     </div>
   );
 }

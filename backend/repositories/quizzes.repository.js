@@ -1,21 +1,16 @@
 require('dotenv').config();
 
 const pg = require('pg');
-const QuizModel = require('../models/quiz.js');
-const QuestionModel = require('../models/question.js');
+const Quiz = require('../models/quiz.js');
+const Question = require('../models/question.js');
 const format = require('pg-format');
 const connectionString = process.env.DATABASE_URL;
 
 const pool = new pg.Pool({
   connectionString
-})
+});
 
 class QuizzesRepository {
-  constructor(){
-    this.Quiz = new QuizModel();
-    this.Question = new QuestionModel();
-  }
-
   async createQuiz(data, callback){
     try{
       const result = await pool.query(`INSERT INTO quizzes (title) VALUES (${data.title}) returning id`, []);
@@ -34,19 +29,23 @@ class QuizzesRepository {
 
   async getQuizzes(params, callback){
     try{
-      const quizzes = await pool.query(`SELECT quizzes.*, count(questions.*) as number_of_questions 
-        FROM quizzes, questions 
-        WHERE quizzes.id = questions.quiz_id
+      const quizzes = await pool.query(`SELECT quizzes.*, count(questions.*) as q_count 
+        FROM quizzes join questions 
+        ON quizzes.id = questions.quiz_id
         GROUP BY quizzes.id
         ORDER BY quizzes.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
+
+      const mappedQuizzes = await quizzes.rows.map((row) => {
+        return Object.assign({ numberOfQuestions: row.q_count }, new Quiz(row));
+      });
 
       const total = await pool.query(`SELECT quizzes.*
         FROM quizzes ORDER BY quizzes.date_created DESC`, []);
       
       const result = {
-        quizzes: await quizzes.rows.map((row) => this.Quiz.convertSqlToJson(row)),
+        quizzes: mappedQuizzes,
         total: total.rows.length
-      }
+      };
 
       callback(null, result);
     } catch(error) {
@@ -60,9 +59,9 @@ class QuizzesRepository {
       const questions = await pool.query(`SELECT * FROM questions WHERE quiz_id = ${params.id}`, []);
 
       const result = {
-        quiz: await this.Quiz.convertSqlToJson(quiz.rows[0]),
-        questions: await questions.rows.map((row) => this.Question.convertSqlToJson(row)),
-      }
+        quiz: await new Quiz(quiz.rows[0]),
+        questions: await questions.rows.map((row) => new Question(row)),
+      };
 
       callback(null, result);
     } catch(error) {

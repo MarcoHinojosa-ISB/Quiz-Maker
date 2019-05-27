@@ -19,7 +19,7 @@ quizRoutes.get('/quizzes', (req, res) => {
 quizRoutes.get('/quiz', (req, res) => {
   quizzesRepository.getQuiz(req.query, (err, result) => {
     err ? res.status(500).send(err) : res.status(200).send(result);
-  })
-})
+  });
+});
 
 module.exports = quizRoutes;

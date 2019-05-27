@@ -24,15 +24,7 @@ const quizCreationReducer = (state = initialState, action) => {
         return state;
       }
     case 'CLEAR_FORM':
-      return Object.assign({},
-        state,
-        {
-          disabled: true,
-          newQuestion: '',
-          questions: [],
-          quizCreated: false,
-          title: ''
-        });
+      return initialState;
     case 'EDIT_QUESTION':
       return Object.assign({},
         state,

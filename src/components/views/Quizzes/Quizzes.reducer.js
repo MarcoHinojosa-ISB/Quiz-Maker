@@ -3,10 +3,12 @@ const initialState = {
   pageNum: 1,
   quizzes: [],
   totalPages: 1
-}
+};
 
 const quizzesReducer = (state = initialState, action) => {
   switch(action.type){
+    case 'CLEAR':
+      return initialState;
     case 'UPDATE_LIST':
       return Object.assign({}, 
         state, 
@@ -20,6 +22,6 @@ const quizzesReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default quizzesReducer;
