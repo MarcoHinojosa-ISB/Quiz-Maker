@@ -6,6 +6,12 @@ const clear = () => {
   };
 };
 
+const completeQuiz = () => {
+  return {
+    type: 'COMPLETE_QUIZ'
+  };
+};
+
 const displayQuiz = (quizData) => {
   return {
     type: 'DISPLAY_QUIZ',
@@ -25,7 +31,29 @@ const getQuiz = (id) => {
   };
 };
 
+const submitAnswers = (data) => {
+  return (dispatch) => {
+    Axios.post('/api/submission', data)
+      .then(() => {
+        dispatch(completeQuiz());
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+const updateAnswer = (index, input) => {
+  return {
+    type: 'UPDATE_ANSWER',
+    index,
+    input
+  };
+};
+
 export {
   clear,
-  getQuiz
+  getQuiz,
+  submitAnswers,
+  updateAnswer
 };

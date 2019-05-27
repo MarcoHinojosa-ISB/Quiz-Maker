@@ -1,5 +1,6 @@
 var bodyParser = require('body-parser');
 var quizRoutes = require('./backend/routes/quizzes.route.js');
+var submissionRoutes = require('./backend/routes/submissions.route.js');
 
 const config = {
   module: {
@@ -27,7 +28,7 @@ const config = {
       app.use(bodyParser.json());
       app.use(bodyParser.urlencoded({ extended: false }));
 
-      app.use('/api', quizRoutes);
+      app.use('/api', [quizRoutes, submissionRoutes]);
     }
   },
 };

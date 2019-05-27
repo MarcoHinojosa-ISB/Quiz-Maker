@@ -1,8 +1,6 @@
 require('dotenv').config();
 
 const pg = require('pg');
-const Quiz = require('../models/quiz.js');
-const Question = require('../models/question.js');
 const format = require('pg-format');
 const connectionString = process.env.DATABASE_URL;
 
@@ -10,14 +8,18 @@ const pool = new pg.Pool({
   connectionString
 });
 
+const Quiz = require('../models/quiz.js');
+const Question = require('../models/question.js');
+
 class QuizzesRepository {
   async createQuiz(data, callback){
     try{
-      const result = await pool.query(`INSERT INTO quizzes (title) VALUES (${data.title}) returning id`, []);
+      const quiz = await pool.query(`INSERT INTO quizzes (title) VALUES ($1) returning id`, [data.title]);
 
-      const questions = data.questions.map((question) => {
-        return [result.rows[0].id, question];
-      });
+      let questions = [];
+      for(let i=0; i<data.questions.length; i++){
+        questions.push([quiz.rows[0].id, data.questions[i]]);
+      }
 
       await pool.query(format(`INSERT INTO questions (quiz_id, question_text) VALUES %L`, questions));
 
@@ -36,7 +38,7 @@ class QuizzesRepository {
         ORDER BY quizzes.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
 
       const mappedQuizzes = await quizzes.rows.map((row) => {
-        return Object.assign({ numberOfQuestions: row.q_count }, new Quiz(row));
+        return Object.assign({ numberOfQuestions: parseInt(row.q_count) }, new Quiz(row));
       });
 
       const total = await pool.query(`SELECT quizzes.*

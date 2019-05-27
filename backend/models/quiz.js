@@ -1,10 +1,10 @@
 class Quiz{
-  constructor(data){
-    this.authorId = data.author_id,
-    this.dateCreated = data.date_created,
-    this.dateUpdated = data.date_updated,
-    this.id = data.id,
-    this.title = data.title
+  constructor(pgCols){
+    this.authorId = pgCols.author_id;
+    this.dateCreated = pgCols.date_created;
+    this.dateUpdated = pgCols.date_updated;
+    this.id = pgCols.id;
+    this.title = pgCols.title;
   }
 }
 

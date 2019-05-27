@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const List = ({questions}) => {
+const List = ({questions, updateAnswer}) => {
+  const handleChange = (index, e) => {
+    updateAnswer(index, e.target.value);
+  };
+
   let listOfQuestions = questions.map((question, i) => {
     return (
       <li key={question.questionText+i}>
         <h3 className="question">{(i+1)+'. '+question.questionText}</h3>
-        <textarea className="answer"></textarea>
+        <textarea className="answer" onChange={handleChange.bind(this,i)}></textarea>
       </li>
     );
   });
@@ -19,7 +23,8 @@ const List = ({questions}) => {
 };
 
 List.propTypes = {
-  questions: PropTypes.array
+  questions: PropTypes.array,
+  updateAnswer: PropTypes.func
 };
 
 export default List;

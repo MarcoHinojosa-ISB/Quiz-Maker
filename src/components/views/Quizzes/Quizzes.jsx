@@ -10,8 +10,6 @@ import { connect } from 'react-redux';
 class Quizzes extends React.Component{
   constructor(props){
     super(props);
-
-    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   componentDidMount(){

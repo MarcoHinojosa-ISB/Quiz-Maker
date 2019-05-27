@@ -1,10 +1,10 @@
 class Question{
-  constructor(data){
-    this.dateCreated = data.date_created;
-    this.dateUpdated = data.date_updated;
-    this.id = data.id;
-    this.questionText = data.question_text;
-    this.quizId = data.quiz_id;
+  constructor(pgCols){
+    this.dateCreated = pgCols.date_created;
+    this.dateUpdated = pgCols.date_updated;
+    this.id = pgCols.id;
+    this.questionText = pgCols.question_text;
+    this.quizId = pgCols.quiz_id;
   }
 }
 
