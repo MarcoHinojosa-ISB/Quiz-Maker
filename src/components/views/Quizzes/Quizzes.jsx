@@ -3,7 +3,7 @@ import List from './sub-components/List.jsx';
 import Loading from '../../partials/Loading/Loading.jsx';
 import Pagination from './sub-components/Pagination.jsx';
 import PropTypes from 'prop-types';
-import { getQuizzes } from './Quizzes.actions';
+import { clear, getQuizzes } from './Quizzes.actions';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
@@ -14,6 +14,10 @@ class Quizzes extends React.Component{
 
   componentDidMount(){
     this.props.getQuizzes(this.props.pageNum);
+  }
+
+  componentWillUnmount(){
+    this.props.clear();
   }
 
   render(){
@@ -63,6 +67,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
+    clear: () => dispatch(clear()),
     getQuizzes: (limit, offset) => dispatch(getQuizzes(limit, offset))
   };
 }

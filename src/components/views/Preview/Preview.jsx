@@ -48,7 +48,7 @@ Preview.propTypes = {
   loading: PropTypes.bool,
   match: PropTypes.object,
   quiz: PropTypes.object,
-  questions: PropTypes.object,
+  questions: PropTypes.array,
   //methods
   clear: PropTypes.func,
   getQuiz: PropTypes.func

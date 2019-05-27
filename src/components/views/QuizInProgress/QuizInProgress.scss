@@ -35,10 +35,10 @@
     }
   }
 
-  form{
+  .submit{
     text-align: right;
 
-    .submit{
+    button{
       background-color: $btn-bg-color-submit;
       border: none;
       color: $btn-color-submit;

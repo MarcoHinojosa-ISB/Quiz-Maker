@@ -3,6 +3,7 @@ import List from './sub-components/List.jsx';
 import Complete from './sub-components/Complete.jsx';
 import Loading from '../../partials/Loading/Loading.jsx';
 import PropTypes from 'prop-types';
+import Submit from './sub-components/Submit.jsx';
 import Title from './sub-components/Title.jsx';
 import { clear, getQuiz, submitAnswers, updateAnswer } from './QuizInProgress.actions';
 import { withRouter } from 'react-router';
@@ -53,9 +54,7 @@ class QuizInProgress extends React.Component{
         <div>
           <Title title={this.props.quiz.title} />
           <List questions={this.props.questions} updateAnswer={this.props.updateAnswer} />
-          <form onSubmit={this.handleSubmit}>
-            <button className="submit"><strong>Submit</strong></button>
-          </form>
+          <Submit handleSubmit={this.handleSubmit} />
         </div>
       );
     }
