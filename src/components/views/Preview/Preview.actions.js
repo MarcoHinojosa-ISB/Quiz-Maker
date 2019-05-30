@@ -2,13 +2,13 @@ import Axios from 'axios';
 
 const clear = () => {
   return {
-    type: 'CLEAR'
+    type: 'PREVIEW_CLEAR'
   };
 };
 
 const displayQuiz = (quizData) => {
   return {
-    type: 'DISPLAY_QUIZ',
+    type: 'PREVIEW_DISPLAY_QUIZ',
     quizData
   };
 };

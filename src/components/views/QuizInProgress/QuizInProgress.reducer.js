@@ -8,9 +8,9 @@ const initialState = {
 
 const QuizInProgressReducer = (state = initialState, action) => {
   switch(action.type){
-    case 'CLEAR':
+    case 'QUIZ_IN_PROGRESS_CLEAR':
       return initialState;
-    case 'COMPLETE_QUIZ':
+    case 'QUIZ_IN_PROGRESS_COMPLETE_QUIZ':
       return Object.assign({},
         initialState,
         {
@@ -18,7 +18,7 @@ const QuizInProgressReducer = (state = initialState, action) => {
           loading: false
         }
       );
-    case 'DISPLAY_QUIZ':
+    case 'QUIZ_IN_PROGRESS_DISPLAY_QUIZ':
       return Object.assign({}, 
         state,
         {
@@ -28,7 +28,7 @@ const QuizInProgressReducer = (state = initialState, action) => {
           answers: Array(action.quizData.questions.length).fill('')
         }
       );
-    case 'UPDATE_ANSWER':
+    case 'QUIZ_IN_PROGRESS_UPDATE_ANSWER':
       return Object.assign({},
         state,
         {

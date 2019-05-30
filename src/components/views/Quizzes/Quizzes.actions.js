@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 const clear = () => {
 	return {
-		type: 'CLEAR'
+		type: 'QUIZZES_CLEAR'
 	};
 };
 
@@ -20,7 +20,7 @@ const getQuizzes = (pageNumber) => {
 
 const updateList = (list, selectedPage) => {
 	return {
-		type: 'UPDATE_LIST',
+		type: 'QUIZZES_UPDATE_LIST',
 		list,
 		selectedPage
 	};

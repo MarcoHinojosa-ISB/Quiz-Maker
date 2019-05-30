@@ -6,9 +6,9 @@ const initialState = {
 
 const previewReducer = (state = initialState, action) => {
   switch(action.type){
-    case 'CLEAR': 
+    case 'PREVIEW_CLEAR': 
       return initialState;
-    case 'DISPLAY_QUIZ':
+    case 'PREVIEW_DISPLAY_QUIZ':
       return Object.assign({}, 
         state,
         {

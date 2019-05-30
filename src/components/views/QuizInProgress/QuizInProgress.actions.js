@@ -2,19 +2,19 @@ import Axios from 'axios';
 
 const clear = () => {
   return {
-    type: 'CLEAR'
+    type: 'QUIZ_IN_PROGRESS_CLEAR'
   };
 };
 
 const completeQuiz = () => {
   return {
-    type: 'COMPLETE_QUIZ'
+    type: 'QUIZ_IN_PROGRESS_COMPLETE_QUIZ'
   };
 };
 
 const displayQuiz = (quizData) => {
   return {
-    type: 'DISPLAY_QUIZ',
+    type: 'QUIZ_IN_PROGRESS_DISPLAY_QUIZ',
     quizData
   };
 };
@@ -45,7 +45,7 @@ const submitAnswers = (data) => {
 
 const updateAnswer = (index, input) => {
   return {
-    type: 'UPDATE_ANSWER',
+    type: 'QUIZ_IN_PROGRESS_UPDATE_ANSWER',
     index,
     input
   };

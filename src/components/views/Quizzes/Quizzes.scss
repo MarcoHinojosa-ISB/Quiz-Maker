@@ -3,13 +3,12 @@
   $bg-color: #f7f7f7;
   $border-color: #666666;
   $btn-bg-color: #1ca8d5;
-  $pagination-color: #1ca8d5;
 
-  .title{
+  h3.title{
     text-align: center;
   }
 
-  .list{
+  ul.list{
     list-style: none;
     height: 520px;
     margin-top: 0;
@@ -18,21 +17,26 @@
     li{
       padding: 10px 0px;
 
-      .description{
-        .quiz-title{
+      div.description{
+        span.quiz-title{
           display: inline-block;
           overflow: hidden;
           text-overflow: ellipsis;
-          width: 80%;
+          width: 75%;
         }
   
-        .quiz-size{
+        span.quiz-size{
           display: inline-block;
-          width: 20%;
+          text-align: right;
+          width: 25%;
+
+          >div{
+            display: inline-block;
+          }
         }
       }
       
-      .links a{
+      div.links a{
         background-color: $btn-bg-color;
         display: inline-block;
         font-size: 10px;
@@ -47,20 +51,20 @@
     }
   }
 
-  .pagination{
+  ul.pagination{
     list-style: none;
     padding-left: 0px;
     text-align: center;
 
     li{
-      border: 1px solid $pagination-color;
+      border: 1px solid $btn-bg-color;
       color: $border-color;
       cursor: pointer;
       display: inline-block;
       padding: 5px;
 
       &.current-page{
-        background-color: $pagination-color;
+        background-color: $btn-bg-color;
         color: $bg-color;
         cursor: default;
       }

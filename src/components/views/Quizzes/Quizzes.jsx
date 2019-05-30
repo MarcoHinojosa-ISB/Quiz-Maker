@@ -58,6 +58,7 @@ Quizzes.propTypes = {
   quizzes: PropTypes.array,
   totalPages: PropTypes.number,
   // methods
+  clear: PropTypes.func,
   getQuizzes: PropTypes.func
 };
 
@@ -68,7 +69,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     clear: () => dispatch(clear()),
-    getQuizzes: (limit, offset) => dispatch(getQuizzes(limit, offset))
+    getQuizzes: (pageNum) => dispatch(getQuizzes(pageNum))
   };
 }
 

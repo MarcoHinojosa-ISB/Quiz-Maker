@@ -8,7 +8,7 @@ const initialState = {
 
 const quizCreationReducer = (state = initialState, action) => {
   switch(action.type){
-    case 'ADD_QUESTION':
+    case 'QUIZ_CREATION_ADD_QUESTION':
       if(state.newQuestion.trim().length > 0) {
         return Object.assign({},
           state,
@@ -23,22 +23,22 @@ const quizCreationReducer = (state = initialState, action) => {
       } else {
         return state;
       }
-    case 'CLEAR_FORM':
+    case 'QUIZ_CREATION_CLEAR_FORM':
       return initialState;
-    case 'EDIT_QUESTION':
+    case 'QUIZ_CREATION_EDIT_QUESTION':
       return Object.assign({},
         state,
         {
           newQuestion: action.text
         });
-    case 'EDIT_TITLE':
+    case 'QUIZ_CREATION_EDIT_TITLE':
       return Object.assign({},
         state,
         {
           disabled: action.title.length === 0 || state.questions.length === 0,
           title: action.title
         });
-    case 'REMOVE_QUESTION':
+    case 'QUIZ_CREATION_REMOVE_QUESTION':
       return Object.assign({},
         state,
         {
@@ -48,7 +48,7 @@ const quizCreationReducer = (state = initialState, action) => {
             ...state.questions.slice(action.index + 1)
           ]
         });
-    case 'QUIZ_CREATED':
+    case 'QUIZ_CREATION_QUIZ_CREATED':
       return Object.assign({},
         state,
         {

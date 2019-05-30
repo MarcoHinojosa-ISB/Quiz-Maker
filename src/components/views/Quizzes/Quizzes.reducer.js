@@ -7,9 +7,9 @@ const initialState = {
 
 const quizzesReducer = (state = initialState, action) => {
   switch(action.type){
-    case 'CLEAR':
+    case 'QUIZZES_CLEAR':
       return initialState;
-    case 'UPDATE_LIST':
+    case 'QUIZZES_UPDATE_LIST':
       return Object.assign({}, 
         state, 
         {

@@ -2,13 +2,13 @@ import Axios from 'axios';
 
 const addQuestion = () => {
   return {
-    type: 'ADD_QUESTION'
+    type: 'QUIZ_CREATION_ADD_QUESTION'
   };
 };
 
 const clearForm = () => {
   return {
-    type: 'CLEAR_FORM'
+    type: 'QUIZ_CREATION_CLEAR_FORM'
   };
 };
 
@@ -28,27 +28,27 @@ const createQuiz = (quiz) => {
 
 const editQuestion = (text) => {
   return {
-    type: 'EDIT_QUESTION',
+    type: 'QUIZ_CREATION_EDIT_QUESTION',
     text
   };
 };
 
 const editTitle = (title) => {
   return {
-    type: 'EDIT_TITLE',
+    type: 'QUIZ_CREATION_EDIT_TITLE',
     title
   };
 };
 
 const quizCreated = () => {
   return {
-    type: 'QUIZ_CREATED'
+    type: 'QUIZ_CREATION_QUIZ_CREATED'
   };
 };
 
 const removeQuestion = (index) => {
   return {
-    type: 'REMOVE_QUESTION',
+    type: 'QUIZ_CREATION_REMOVE_QUESTION',
     index
   };
 };

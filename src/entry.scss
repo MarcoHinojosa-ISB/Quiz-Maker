@@ -2,6 +2,8 @@
 @import "components/partials/Header/Header";
 @import "components/partials/Loading/Loading";
 @import "components/views/Home/Home";
+@import "components/views/LoginPage/LoginPage";
+@import "components/views/SignupPage/SignupPage";
 @import "components/views/QuizCreation/QuizCreation";
 @import "components/views/QuizInProgress/QuizInProgress";
 @import "components/views/Quizzes/Quizzes";
@@ -21,6 +23,7 @@ body{
   box-shadow: 0px 0px 3px 0px #777777;
   margin: 20px auto;
   padding: 10px 20px;
-  width: 600px;
+  width: 60%;
+  min-width: 500px;
   @include border-radius(10px);
 }

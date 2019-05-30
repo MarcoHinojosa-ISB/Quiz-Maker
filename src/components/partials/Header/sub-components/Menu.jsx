@@ -11,7 +11,7 @@ class Menu extends React.Component {
       <ul className="navigation">
         <li><Link to="/quizzes">Quizzes</Link></li>
         <li><Link to="/quiz-creation">Create</Link></li>
-        <li><Link to="/">Login</Link></li>
+        <li><Link to="/login-page">Login</Link></li>
       </ul>
     );
   }
