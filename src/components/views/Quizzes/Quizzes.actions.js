@@ -7,9 +7,11 @@ const clear = () => {
 };
 
 const getQuizzes = (pageNumber) => {
+	console.log(pageNumber)
 	return (dispatch) => {
 		Axios.get(`/api/quizzes?page=${pageNumber}`)
 		.then((result) => {
+			console.log(result);
 			dispatch(updateList(result.data, pageNumber));
 		})
 		.catch((error) => {

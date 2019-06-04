@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginForm from './sub-components/LoginForm.jsx';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class LoginPage extends React.Component{
   constructor(props){
