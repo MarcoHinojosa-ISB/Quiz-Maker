@@ -6,7 +6,7 @@ const submissionsRepository = new SubmissionsRepository();
 
 submissionRoutes.post('/submission', (req, res) => {
   submissionsRepository.createSubmission(req.body, (err) => {
-    return err ? res.status(500).send(err) : res.status(200).send('ok'); 
+    err ? res.status(500).send(err) : res.status(200).send('ok'); 
   });
 });
 

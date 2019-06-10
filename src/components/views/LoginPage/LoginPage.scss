@@ -1,5 +1,10 @@
 #login-page{
   $input-border-color: #bcbcbc;
+  $btn-bg-color: #1ca8d5;
+
+  .panel{
+    width: 500px;
+  }
 
   h1{
     text-align: center;
@@ -17,6 +22,16 @@
       margin-bottom: 10px;
       padding: 7px;
       width: 100%;
+    }
+    button[type="submit"]{
+      background-color: $btn-bg-color;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .error{
+      color: red;
     }
   }
   

@@ -1,20 +1,13 @@
-import Axios from 'axios';
-
 const clearForm = () => {
   return {
     type: 'SIGNUP_PAGE_CLEAR_FORM'
   };
 };
 
-const signUp = (userInfo) => {
-  return (dispatch) => {
-    Axios.post('/api/auth/signup', userInfo)
-    .then(() => {
-      dispatch(clearForm());
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+const updateErrorMessage = (message) => {
+  return {
+    type: 'SIGNUP_PAGE_UPDATE_ERROR_MESSAGE',
+    message
   };
 };
 
@@ -32,9 +25,17 @@ const updateUsername = (username) => {
   };
 };
 
+const updateRepassword = (repassword) => {
+  return {
+    type: 'SIGNUP_PAGE_UPDATE_REPASSWORD',
+    repassword
+  };
+};
+
 export {
   clearForm,
-  signUp,
+  updateErrorMessage,
   updatePassword,
+  updateRepassword,
   updateUsername
 };

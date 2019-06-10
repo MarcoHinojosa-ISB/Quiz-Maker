@@ -19,12 +19,12 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/login-page" component={LoginPage} />
+            <Route path="/login-page" render={(props) => <LoginPage {...props}/>} />
             <Route path="/quiz-creation" component={QuizCreation} />
             <Route path="/quizzes/preview/:id" component={Preview} />
             <Route path="/quizzes/quiz-in-progress/:id" component={QuizInProgress} />
             <Route path="/quizzes" component={Quizzes} />
-            <Route path="/signup-page" component={SignupPage} />
+            <Route path="/signup-page" render={(props) => <SignupPage {...props}/>} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

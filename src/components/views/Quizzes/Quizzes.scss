@@ -3,9 +3,18 @@
   $bg-color: #f7f7f7;
   $border-color: #666666;
   $btn-bg-color: #1ca8d5;
+  $btn-bg-color2: #23c21e;
 
   h3.title{
     text-align: center;
+
+    a{
+      background-color: $btn-bg-color2;
+      display: inline-block;
+      font-size: 14px;
+      padding: 5px 10px;
+      @include removeLinkStyle($bg-color);
+    }
   }
 
   ul.list{

@@ -5,6 +5,7 @@ import Pagination from './sub-components/Pagination.jsx';
 import PropTypes from 'prop-types';
 import { clear, getQuizzes } from './Quizzes.actions';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Quizzes extends React.Component{
@@ -30,7 +31,7 @@ class Quizzes extends React.Component{
     } else {
       content = (
         <div>
-          <h3 className="title">Current Quizzes</h3>
+          <h3 className="title">Quizzes <Link to="/create-quiz">Create one</Link></h3>
           <List quizzes={this.props.quizzes} urlPath={this.props.match.url} />
           <Pagination 
             totalPages={this.props.totalPages}

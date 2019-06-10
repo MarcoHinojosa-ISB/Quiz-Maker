@@ -20,13 +20,17 @@
     margin-bottom: 0;
     float: right;
 
-    >li{
-      cursor: pointer;
+    li{
+      color: $color;
       display: inline-block;
       margin: 0 5px;
 
-      &:hover{
-        border-bottom: 2px solid $color;
+      &.clickable{
+        cursor: pointer;
+        
+        &:hover{
+          border-bottom: 2px solid $color;
+        }
       }
 
       >a{
