@@ -1,4 +1,5 @@
 import React from 'react';
+import GuestRoute from './HOCs/GuestRoute.jsx';
 import Header from './partials/Header/Header.jsx';
 import Home from './views/Home/Home.jsx';
 import LoginPage from './views/LoginPage/LoginPage.jsx';
@@ -19,12 +20,12 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/login-page" render={(props) => <LoginPage {...props}/>} />
+            <GuestRoute path="/login-page" component={LoginPage} />
             <Route path="/quiz-creation" component={QuizCreation} />
             <Route path="/quizzes/preview/:id" component={Preview} />
             <Route path="/quizzes/quiz-in-progress/:id" component={QuizInProgress} />
             <Route path="/quizzes" component={Quizzes} />
-            <Route path="/signup-page" render={(props) => <SignupPage {...props}/>} />
+            <GuestRoute path="/signup-page" component={SignupPage} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

@@ -31,7 +31,7 @@ class Quizzes extends React.Component{
     } else {
       content = (
         <div>
-          <h3 className="title">Quizzes <Link to="/create-quiz">Create one</Link></h3>
+          <h3 className="title">Quizzes <Link to="/quiz-creation">Create one</Link></h3>
           <List quizzes={this.props.quizzes} urlPath={this.props.match.url} />
           <Pagination 
             totalPages={this.props.totalPages}

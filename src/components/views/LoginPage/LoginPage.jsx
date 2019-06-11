@@ -13,18 +13,6 @@ class LoginPage extends React.Component{
     this.login = this.login.bind(this);
   }
 
-  static getDerivedStateFromProps(props, state){
-    try{
-      let userdata = jwt.verify(sessionStorage.getItem('quiz-maker-auth-token'), jwtsecret.secret);
-      
-      if(userdata){
-        props.history.push('/');
-      }
-    } catch(error) {
-      return null;
-    }
-  }
-
   login(userInfo){
     Axios.post('/api/login', userInfo)
     .then((result) => {

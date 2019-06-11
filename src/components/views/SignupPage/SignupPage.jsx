@@ -13,18 +13,6 @@ class SignupPage extends React.Component{
     this.signUp = this.signUp.bind(this);
   }
 
-  static getDerivedStateFromProps(props, state){
-    try{
-      let userdata = jwt.verify(sessionStorage.getItem('quiz-maker-auth-token'), jwtsecret.secret);
-      
-      if(userdata){
-        props.history.push('/');
-      }
-    } catch(error) {
-      return null;
-    }
-  }
-
   signUp(userInfo){
     Axios.post('/api/signup', userInfo)
     .then((result) => {
