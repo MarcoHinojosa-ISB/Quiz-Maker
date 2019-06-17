@@ -25,6 +25,28 @@ class SubmissionsRepository {
       callback(error);
     }
   }
+
+  async getSubmissions(params, callback){
+    try{
+      const submissions = await pool.query(`SELECT submissions.id, quizzes.title, users.username 
+        FROM submissions 
+        JOIN quizzes ON submissions.quiz_id = quizzes.id
+        LEFT JOIN users ON submissions.user_id = users.id
+        ORDER BY submissions.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
+
+      const total = await pool.query(`SELECT submissions.*
+        FROM submissions ORDER BY submissions.date_created DESC`, []);
+      
+      const result = {
+        submissions: submissions.rows,
+        total: total.rows.length
+      };
+
+      callback(null, result);
+    } catch(error) {
+      callback(error, null);
+    }
+  }
 }
 
 module.exports = SubmissionsRepository;

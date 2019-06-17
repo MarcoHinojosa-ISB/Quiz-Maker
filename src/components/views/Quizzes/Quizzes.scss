@@ -7,11 +7,15 @@
 
   h3.title{
     text-align: center;
+  }
+  .sub-menu{
+    text-align: center;
 
     a{
       background-color: $btn-bg-color2;
       display: inline-block;
       font-size: 14px;
+      margin: 0 5px;
       padding: 5px 10px;
       @include removeLinkStyle($bg-color);
     }
@@ -19,7 +23,6 @@
 
   ul.list{
     list-style: none;
-    height: 520px;
     margin-top: 0;
     padding-left: 0;
 
@@ -38,10 +41,6 @@
           display: inline-block;
           text-align: right;
           width: 25%;
-
-          >div{
-            display: inline-block;
-          }
         }
       }
       

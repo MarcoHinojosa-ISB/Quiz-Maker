@@ -15,7 +15,6 @@ var userRoutes = require('./backend/routes/users.route.js');
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/src', express.static(__dirname + '/src'));
 
-
 app.use('/api', [quizRoutes, submissionRoutes, userRoutes]);
 
 app.use('/', function(req, res) {

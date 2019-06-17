@@ -3,12 +3,12 @@ import Description from './Description.jsx';
 import Links from './Links.jsx';
 import PropTypes from 'prop-types';
 
-const List = ({quizzes, urlPath}) => {
+const List = ({quizzes}) => {
   let listOfQuizzes = quizzes.map((quiz, i) => {
     return (
       <li key={quiz.title+i}>
         <Description title={quiz.title} length={quiz.numberOfQuestions} />
-        <Links quizId={quiz.id} urlPath={urlPath} />
+        <Links quizId={quiz.id} />
       </li>
     );
   });
@@ -21,8 +21,7 @@ const List = ({quizzes, urlPath}) => {
 };
 
 List.propTypes = {
-  quizzes: PropTypes.array,
-  urlPath: PropTypes.string
+  quizzes: PropTypes.array
 };
 
 export default List;

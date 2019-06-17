@@ -3,11 +3,12 @@
 @import "components/partials/Loading/Loading";
 @import "components/views/Home/Home";
 @import "components/views/LoginPage/LoginPage";
-@import "components/views/SignupPage/SignupPage";
+@import "components/views/Preview/Preview";
 @import "components/views/QuizCreation/QuizCreation";
 @import "components/views/QuizInProgress/QuizInProgress";
 @import "components/views/Quizzes/Quizzes";
-@import "components/views/Preview/Preview";
+@import "components/views/SignupPage/SignupPage";
+@import "components/views/Submissions/Submissions";
 
 *{
   box-sizing: border-box;

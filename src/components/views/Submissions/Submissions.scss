@@ -1,0 +1,47 @@
+#submissions{
+
+  $bg-color: #f7f7f7;
+  $btn-bg-color: #1ca8d5;
+  $border-color: #666666;
+
+  h3.title{
+    text-align: center;
+  }
+
+  ul.list{
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+
+    li{
+      padding: 10px 0px;
+
+      a{
+        background-color: $btn-bg-color;
+        display: inline-block;
+        font-size: 10px;
+        margin: 0 5px 0 0;
+        padding: 3px 15px;
+        @include removeLinkStyle($bg-color);
+      }
+      div.description{
+        span.quiz-title{
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 75%;
+        }
+  
+        span.quiz-taker{
+          display: inline-block;
+          text-align: right;
+          width: 25%;
+        }
+      }
+
+      &+li{
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+}

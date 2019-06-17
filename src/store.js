@@ -7,6 +7,7 @@ import quizCreationReducer from './components/views/QuizCreation/QuizCreation.re
 import quizInProgressReducer from './components/views/QuizInProgress/QuizInProgress.reducer';
 import quizzesReducer from './components/views/Quizzes/Quizzes.reducer';
 import signupPageReducer from './components/views/SignupPage/SignupPage.reducer';
+import submissionsReducer from './components/views/Submissions/Submissions.reducer';
 
 const rootReducer = combineReducers({
   loginPage: loginPageReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   quizCreation: quizCreationReducer,
   quizInProgress: quizInProgressReducer,
   quizzes: quizzesReducer,
-  signupPage: signupPageReducer
+  signupPage: signupPageReducer,
+  submissions: submissionsReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

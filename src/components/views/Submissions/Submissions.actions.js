@@ -6,9 +6,9 @@ const clear = () => {
 	};
 };
 
-const getQuizzes = (pageNumber) => {
+const getSubmissions = (pageNumber) => {
 	return (dispatch) => {
-		Axios.get(`/api/quizzes?page=${pageNumber}`)
+		Axios.get(`/api/submissions?page=${pageNumber}`)
 		.then((result) => {
 			dispatch(updateList(result.data, pageNumber));
 		})
@@ -20,13 +20,13 @@ const getQuizzes = (pageNumber) => {
 
 const updateList = (list, selectedPage) => {
 	return {
-		type: 'QUIZZES_UPDATE_LIST',
+		type: 'SUBMISSIONS_UPDATE_LIST',
 		list,
 		selectedPage
 	};
 };
 
 export {
-	clear,
-	getQuizzes
+  clear,
+  getSubmissions
 };
