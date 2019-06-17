@@ -1,8 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import SignupForm from './sub-components/SignupForm.jsx';
-import jwt from 'jsonwebtoken';
-import jwtsecret from '../../../../jwtsecret';
 import { Link, withRouter } from 'react-router-dom';
 
 class SignupPage extends React.Component{

@@ -1,8 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import LoginForm from './sub-components/LoginForm.jsx';
-import jwt from 'jsonwebtoken';
-import jwtsecret from '../../../../jwtsecret';
 import { Link, withRouter } from 'react-router-dom';
 
 class LoginPage extends React.Component{

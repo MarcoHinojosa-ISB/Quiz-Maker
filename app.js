@@ -1,12 +1,9 @@
-var bodyParser = require('body-parser');
 var express = require('express');
-var cookieParser = require('cookie-parser');
 
 var app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 var quizRoutes = require('./backend/routes/quizzes.route.js');
 var submissionRoutes = require('./backend/routes/submissions.route.js');
