@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const List = ({submissions}) => {
+  console.log(submissions);
   let listOfSubmissions = submissions.map((submission, i) => {
     return (
       <li key={submission.title+i}>
         <Description title={submission.title} username={submission.username} />
-        <Link to="/">View</Link>
+        <Link to={'/submissions/'+submission.id}>View Answers</Link>
       </li>
     );
   });

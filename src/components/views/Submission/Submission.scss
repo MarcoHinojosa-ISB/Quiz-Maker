@@ -1,0 +1,24 @@
+#submission{
+  $border-color: #666666;
+
+  .title{
+    text-align: center;
+  }
+
+  .list{
+    list-style-type: none;
+    padding-left: 0;
+
+    li{
+      padding: 15px;
+
+      .answer{
+        font-weight: 400;
+      }
+      
+      &+li{
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+}

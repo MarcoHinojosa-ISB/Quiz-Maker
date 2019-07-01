@@ -10,7 +10,7 @@ class Header extends React.Component{
 
   handleLogout(){
     if(sessionStorage.getItem('quiz-maker-auth-token')){
-      sessionStorage.removeItem('quiz-maker-auth-token')
+      sessionStorage.removeItem('quiz-maker-auth-token');
     }
     this.props.history.push('/login-page');
   }

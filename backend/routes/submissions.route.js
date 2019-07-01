@@ -16,4 +16,10 @@ submissionRoutes.get('/submissions', (req, res) => {
   });
 });
 
+submissionRoutes.get('/submission', (req, res) => {
+  submissionsRepository.getSubmission(req.query, (err, result) => {
+    err ? res.status(500).send(err) : res.status(200).send(result); 
+  });
+});
+
 module.exports = submissionRoutes;

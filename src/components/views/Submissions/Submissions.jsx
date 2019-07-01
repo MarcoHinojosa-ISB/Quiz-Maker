@@ -1,6 +1,8 @@
 import React from 'react';
 import List from './sub-components/List.jsx';
 import Loading from '../../partials/Loading/Loading.jsx';
+import Pagination from './sub-components/Pagination.jsx';
+import SubmissionLabels from './sub-components/SubmissionLabels.jsx';
 import PropTypes from 'prop-types';
 import { clear, getSubmissions } from './Submissions.actions';
 import { withRouter } from 'react-router';
@@ -30,8 +32,12 @@ class Submissions extends React.Component{
       content = (
         <div>
           <h3 className="title">Submissions</h3>
-
+          <SubmissionLabels />
           <List submissions={this.props.submissions} />
+          <Pagination 
+            totalPages={this.props.totalPages}
+            pageNum={this.props.pageNum} 
+            getSubmissions={this.props.getSubmissions} />
         </div>
       );
     }

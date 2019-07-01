@@ -8,8 +8,8 @@ const pool = new pg.Pool({
   connectionString
 });
 
-const Quiz = require('../models/quiz.js');
 const Question = require('../models/question.js');
+const Quiz = require('../models/quiz.js');
 
 class QuizzesRepository {
   async createQuiz(data, callback){

@@ -5,8 +5,8 @@ import Pagination from './sub-components/Pagination.jsx';
 import PropTypes from 'prop-types';
 import { clear, getQuizzes } from './Quizzes.actions';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import SubMenu from './sub-components/SubMenu.jsx';
 
 class Quizzes extends React.Component{
   constructor(props){
@@ -32,10 +32,7 @@ class Quizzes extends React.Component{
       content = (
         <div>
           <h3 className="title">Quizzes</h3>
-          <div className="sub-menu">
-            <Link to="/submissions">Submissions</Link>
-            <Link to="/quiz-creation">Create one</Link>
-          </div>
+          <SubMenu />
           <List quizzes={this.props.quizzes} />
           <Pagination 
             totalPages={this.props.totalPages}

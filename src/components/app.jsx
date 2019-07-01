@@ -9,6 +9,7 @@ import QuizCreation from './views/QuizCreation/QuizCreation.jsx';
 import QuizInProgress from './views/QuizInProgress/QuizInProgress.jsx';
 import Quizzes from './views/Quizzes/Quizzes.jsx';
 import SignupPage from './views/SignupPage/SignupPage.jsx';
+import Submission from './views/Submission/Submission.jsx';
 import Submissions from './views/Submissions/Submissions.jsx';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -24,9 +25,10 @@ class App extends React.Component {
             <GuestRoute path="/login-page" component={LoginPage} />
             <Route path="/quiz-creation" component={QuizCreation} />
             <Route path="/quizzes/preview/:id" component={Preview} />
-            <Route path="/quizzes/quiz-in-progress/:id" component={QuizInProgress} />
+            <Route path="/quizzes/:id" component={QuizInProgress} />
             <Route path="/quizzes" component={Quizzes} />
             <GuestRoute path="/signup-page" component={SignupPage} />
+            <Route path="/submissions/:id" component={Submission} />
             <Route path="/submissions" component={Submissions} />
             <Route component={PageNotFound} />
           </Switch>

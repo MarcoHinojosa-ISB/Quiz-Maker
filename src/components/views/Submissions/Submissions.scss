@@ -8,7 +8,19 @@
     text-align: center;
   }
 
+  .submission-labels{
+    font-weight: bold;
+
+    .label-quiz{
+      float: left;
+    }
+    .label-user{
+      float: right;
+    }
+  }
+
   ul.list{
+    clear: both;
     list-style: none;
     margin-top: 0;
     padding-left: 0;
@@ -24,6 +36,7 @@
         padding: 3px 15px;
         @include removeLinkStyle($bg-color);
       }
+
       div.description{
         span.quiz-title{
           display: inline-block;
@@ -36,11 +49,36 @@
           display: inline-block;
           text-align: right;
           width: 25%;
+          
+          &.guest{
+            color: #777777;
+            font-style: italic;
+          }
         }
       }
 
       &+li{
         border-top: 1px solid $border-color;
+      }
+    }
+  }
+
+  ul.pagination{
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+
+    li{
+      border: 1px solid $btn-bg-color;
+      color: $border-color;
+      cursor: pointer;
+      display: inline-block;
+      padding: 5px;
+
+      &.current-page{
+        background-color: $btn-bg-color;
+        color: $bg-color;
+        cursor: default;
       }
     }
   }

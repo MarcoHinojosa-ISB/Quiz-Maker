@@ -5,6 +5,8 @@ import Loading from '../../partials/Loading/Loading.jsx';
 import PropTypes from 'prop-types';
 import Submit from './sub-components/Submit.jsx';
 import Title from './sub-components/Title.jsx';
+import jwt from 'jsonwebtoken';
+import jwtsecret from '../../../../jwtsecret';
 import { clear, getQuiz, submitAnswers, updateAnswer } from './QuizInProgress.actions';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
@@ -33,13 +35,21 @@ class QuizInProgress extends React.Component{
   handleSubmit(e){
     e.preventDefault();
 
-    let data = {
+    let submissionData = {
       questions: this.props.questions,
       answers: this.props.answers,
       quiz: this.props.quiz
     };
 
-    this.props.submitAnswers(data);
+    try {
+      let userdata = jwt.verify(sessionStorage.getItem('quiz-maker-auth-token'), jwtsecret.secret);
+  
+      submissionData.userId = userdata.id;
+      this.props.submitAnswers(submissionData);
+    } catch(error) {
+      this.props.submitAnswers(submissionData);
+    }
+
   }
 
   render(){

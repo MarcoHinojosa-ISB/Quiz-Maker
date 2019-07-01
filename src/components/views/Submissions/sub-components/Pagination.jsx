@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Pagination = ({getQuizzes, pageNum, totalPages}) => {
+const Pagination = ({getSubmissions, pageNum, totalPages}) => {
   let pages = [];
 
   for(let i=1; i<=totalPages; i++){
     pages.push(
-      <li key={'quiz-pagination-page-'+i} className={i === pageNum ? 'current-page' : ''} onClick={getQuizzes.bind(this, i)}>
+      <li key={'submission-pagination-page-'+i} className={i === pageNum ? 'current-page' : ''} onClick={getSubmissions.bind(this, i)}>
         {i}
       </li>
     );
@@ -20,7 +20,7 @@ const Pagination = ({getQuizzes, pageNum, totalPages}) => {
 };
 
 Pagination.propTypes = {
-  getQuizzes: PropTypes.func,
+  getSubmissions: PropTypes.func,
   pageNum: PropTypes.number,
   totalPages: PropTypes.number
 };

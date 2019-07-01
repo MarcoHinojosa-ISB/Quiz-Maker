@@ -6,13 +6,11 @@ const Description = ({title, username}) => {
 	return (
 		<div className="description">
 			<span className="quiz-title">{title}</span>
-			<span className="quiz-taker">
-				{
-					username ? 
-					<span>{username}</span> :
-					<em className="guest">guest</em>
-				}
-			</span>
+			{
+				username ? 
+				<span className="quiz-taker">{username}</span> :
+				<span className="quiz-taker guest">guest</span>
+			}
 		</div>
 	);
 };

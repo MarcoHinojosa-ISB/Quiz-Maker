@@ -7,6 +7,7 @@ import quizCreationReducer from './components/views/QuizCreation/QuizCreation.re
 import quizInProgressReducer from './components/views/QuizInProgress/QuizInProgress.reducer';
 import quizzesReducer from './components/views/Quizzes/Quizzes.reducer';
 import signupPageReducer from './components/views/SignupPage/SignupPage.reducer';
+import submissionReducer from './components/views/Submission/Submission.reducer';
 import submissionsReducer from './components/views/Submissions/Submissions.reducer';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   quizInProgress: quizInProgressReducer,
   quizzes: quizzesReducer,
   signupPage: signupPageReducer,
+  submission: submissionReducer,
   submissions: submissionsReducer
 });
 
