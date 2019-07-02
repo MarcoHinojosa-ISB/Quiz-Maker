@@ -31,9 +31,9 @@ class QuizzesRepository {
 
   async getQuizzes(params, callback){
     try{
-      const quizzes = await pool.query(`SELECT quizzes.*, count(questions.*) as q_count 
-        FROM quizzes join questions 
-        ON quizzes.id = questions.quiz_id
+      const quizzes = await pool.query(`SELECT quizzes.*, count(questions.*) AS q_count 
+        FROM quizzes 
+        JOIN questions ON quizzes.id = questions.quiz_id
         GROUP BY quizzes.id
         ORDER BY quizzes.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
 
@@ -42,7 +42,8 @@ class QuizzesRepository {
       });
 
       const total = await pool.query(`SELECT quizzes.*
-        FROM quizzes ORDER BY quizzes.date_created DESC`, []);
+        FROM quizzes 
+        ORDER BY quizzes.date_created DESC`, []);
       
       const result = {
         quizzes: mappedQuizzes,
@@ -57,6 +58,7 @@ class QuizzesRepository {
 
   async getQuiz(params, callback){
     try{
+      console.log(params)
       const quiz = await pool.query(`SELECT * FROM quizzes WHERE id = ${params.id}`, []);
       const questions = await pool.query(`SELECT * FROM questions WHERE quiz_id = ${params.id}`, []);
 

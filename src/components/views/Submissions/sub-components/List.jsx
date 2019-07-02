@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const List = ({submissions}) => {
-  console.log(submissions);
   let listOfSubmissions = submissions.map((submission, i) => {
     return (
       <li key={submission.title+i}>

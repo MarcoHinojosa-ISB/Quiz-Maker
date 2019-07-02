@@ -4,7 +4,7 @@
   $btn-bg-color: #1ca8d5;
   $border-color: #666666;
 
-  h3.title{
+  .title{
     text-align: center;
   }
 
@@ -19,7 +19,7 @@
     }
   }
 
-  ul.list{
+  .list{
     clear: both;
     list-style: none;
     margin-top: 0;
@@ -37,21 +37,21 @@
         @include removeLinkStyle($bg-color);
       }
 
-      div.description{
-        span.quiz-title{
+      .description{
+        .quiz-title{
           display: inline-block;
           overflow: hidden;
           text-overflow: ellipsis;
           width: 75%;
         }
   
-        span.quiz-taker{
+        .quiz-taker{
           display: inline-block;
           text-align: right;
           width: 25%;
           
           &.guest{
-            color: #777777;
+            color: #888888;
             font-style: italic;
           }
         }
@@ -63,7 +63,7 @@
     }
   }
 
-  ul.pagination{
+  .pagination{
     list-style: none;
     padding-left: 0px;
     text-align: center;

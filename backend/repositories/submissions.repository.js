@@ -55,22 +55,18 @@ class SubmissionsRepository {
 
   async getSubmission(params, callback){
     try{
-      const submission = await pool.query(`SELECT * FROM submissions WHERE id = ${params.id}`, []);
-
-      const answers = await pool.query(`SELECT *
+      const questionsAnswers = await pool.query(`SELECT answers.answer_text, questions.question_text
         FROM answers 
-        WHERE submission_id = ${params.id} ORDER BY id`, []);
+        JOIN questions ON questions.id = answers.question_id
+        WHERE answers.submission_id = ${params.id} ORDER BY answers.id`, []);
       
-      const questions = await pool.query(`SELECT questions.*, quizzes.title
-        FROM questions
-        JOIN quizzes ON quizzes.id = questions.quiz_id
-        WHERE quizzes.id = ${submission.rows[0].quiz_id}`, []);
-      
-      const quiz = await pool.query(`SELECT * FROM quizzes WHERE id = ${submission.rows[0].quiz_id}`, []);
+      const quiz = await pool.query(`SELECT quizzes.* FROM quizzes 
+        JOIN submissions ON submissions.id = ${params.id} 
+        WHERE quizzes.id = submissions.quiz_id`, []);
 
       const result = {
-        answers: answers.rows.map((row) => new Answer(row)),
-        questions: questions.rows.map((row) => new Question(row)),
+        answers: questionsAnswers.rows.map((row) => new Answer(row)),
+        questions: questionsAnswers.rows.map((row) => new Question(row)),
         quiz: new Quiz(quiz.rows[0])
       };
 

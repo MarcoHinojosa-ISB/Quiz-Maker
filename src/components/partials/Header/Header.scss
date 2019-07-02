@@ -11,12 +11,12 @@
     display: inline-block;
     margin: 0 0;
 
-    >a{
+    a{
       @include removeLinkStyle($color);
     }
   }
 
-  ul.navigation{
+  .navigation{
     margin-bottom: 0;
     float: right;
 
@@ -33,7 +33,7 @@
         }
       }
 
-      >a{
+      a{
         @include removeLinkStyle($color);
       }
     }

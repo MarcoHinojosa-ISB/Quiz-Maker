@@ -14,6 +14,11 @@
 
       .answer{
         font-weight: 400;
+
+        &.empty{
+          color: #888888;
+          font-style: italic;
+        }
       }
       
       &+li{

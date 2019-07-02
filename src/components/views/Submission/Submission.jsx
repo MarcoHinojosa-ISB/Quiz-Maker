@@ -46,6 +46,7 @@ class Submission extends React.Component{
 
 Submission.propTypes = {
   //properties
+  answers: PropTypes.array,
   loading: PropTypes.bool,
   match: PropTypes.object,
   quiz: PropTypes.object,

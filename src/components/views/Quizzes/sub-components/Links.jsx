@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Links = ({quizId}) => {
   return (
     <div className="links">
-      <Link to={'quizzes/quiz-in-progress/'+quizId}>Start</Link>
+      <Link to={'quizzes/'+quizId}>Start</Link>
       <Link to={'quizzes/preview/'+quizId}>Preview</Link>
     </div>
   );

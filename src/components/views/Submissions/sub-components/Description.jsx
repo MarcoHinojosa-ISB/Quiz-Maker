@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Description = ({title, username}) => {
-	
 	return (
 		<div className="description">
 			<span className="quiz-title">{title}</span>
