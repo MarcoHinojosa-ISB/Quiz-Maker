@@ -1,13 +1,13 @@
 #quizzes{
-  $color: #333333;
   $bg-color: #f7f7f7;
   $border-color: #666666;
   $btn-bg-color: #1ca8d5;
-  $btn-bg-color2: #23c21e;
+  $btn-bg-color2: #5ac757;
 
   .title{
     text-align: center;
   }
+
   .sub-menu{
     text-align: center;
 
@@ -21,7 +21,19 @@
     }
   }
 
+  .quiz-labels{
+    font-weight: bold;
+
+    .label-quiz{
+      float: left;
+    }
+    .label-length{
+      float: right;
+    }
+  }
+
   .list{
+    clear: both;
     list-style: none;
     margin-top: 0;
     padding-left: 0;
@@ -64,16 +76,16 @@
     padding-left: 0px;
     text-align: center;
 
-    li{
-      border: 1px solid $btn-bg-color;
+    button{
+      background: none;
+      border: none;
       color: $border-color;
       cursor: pointer;
-      display: inline-block;
-      padding: 5px;
+      font-size: 20px;
+      outline: none;
 
-      &.current-page{
-        background-color: $btn-bg-color;
-        color: $bg-color;
+      &[disabled]{
+        color: #bbbbbb;
         cursor: default;
       }
     }

@@ -3,10 +3,11 @@ import List from './sub-components/List.jsx';
 import Loading from '../../partials/Loading/Loading.jsx';
 import Pagination from './sub-components/Pagination.jsx';
 import PropTypes from 'prop-types';
+import SubMenu from './sub-components/SubMenu.jsx';
+import QuizLabels from './sub-components/QuizLabels.jsx';
 import { clear, getQuizzes } from './Quizzes.actions';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import SubMenu from './sub-components/SubMenu.jsx';
 
 class Quizzes extends React.Component{
   constructor(props){
@@ -33,6 +34,7 @@ class Quizzes extends React.Component{
         <div>
           <h3 className="title">Quizzes</h3>
           <SubMenu />
+          <QuizLabels />
           <List quizzes={this.props.quizzes} />
           <Pagination 
             totalPages={this.props.totalPages}

@@ -58,7 +58,6 @@ class QuizzesRepository {
 
   async getQuiz(params, callback){
     try{
-      console.log(params)
       const quiz = await pool.query(`SELECT * FROM quizzes WHERE id = ${params.id}`, []);
       const questions = await pool.query(`SELECT * FROM questions WHERE quiz_id = ${params.id}`, []);
 

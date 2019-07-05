@@ -1,11 +1,24 @@
 #submissions{
-
   $bg-color: #f7f7f7;
   $btn-bg-color: #1ca8d5;
   $border-color: #666666;
+  $btn-bg-color2: #5ac757;
 
   .title{
     text-align: center;
+  }
+
+  .sub-menu{
+    text-align: center;
+
+    a{
+      background-color: $btn-bg-color2;
+      display: inline-block;
+      font-size: 14px;
+      margin: 0 5px;
+      padding: 5px 10px;
+      @include removeLinkStyle($bg-color);
+    }
   }
 
   .submission-labels{
@@ -51,7 +64,7 @@
           width: 25%;
           
           &.guest{
-            color: #888888;
+            color: #aaaaaa;
             font-style: italic;
           }
         }
@@ -68,16 +81,16 @@
     padding-left: 0px;
     text-align: center;
 
-    li{
-      border: 1px solid $btn-bg-color;
+    button{
+      background: none;
+      border: none;
       color: $border-color;
       cursor: pointer;
-      display: inline-block;
-      padding: 5px;
+      font-size: 20px;
+      outline: none;
 
-      &.current-page{
-        background-color: $btn-bg-color;
-        color: $bg-color;
+      &[disabled]{
+        color: #bbbbbb;
         cursor: default;
       }
     }

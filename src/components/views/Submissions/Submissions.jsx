@@ -4,6 +4,7 @@ import Loading from '../../partials/Loading/Loading.jsx';
 import Pagination from './sub-components/Pagination.jsx';
 import SubmissionLabels from './sub-components/SubmissionLabels.jsx';
 import PropTypes from 'prop-types';
+import SubMenu from './sub-components/SubMenu.jsx';
 import { clear, getSubmissions } from './Submissions.actions';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
@@ -32,6 +33,7 @@ class Submissions extends React.Component{
       content = (
         <div>
           <h3 className="title">Submissions</h3>
+          <SubMenu />
           <SubmissionLabels />
           <List submissions={this.props.submissions} />
           <Pagination 

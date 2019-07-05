@@ -10,7 +10,7 @@ class Home extends React.Component {
     return (
       <div id="home">
         <h3>
-          This is a Quiz-Generating app. You can make quizzes of different kinds here.
+          This is a Quiz-Generating app. You can make open-ended quizzes of different kinds here.
         </h3>
       </div>
     );

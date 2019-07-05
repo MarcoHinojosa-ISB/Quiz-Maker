@@ -2,22 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Pagination = ({getQuizzes, pageNum, totalPages}) => {
-  let pages = [];
-
-  for(let i=1; i<=totalPages; i++){
-    pages.push(
-      <li key={'quiz-pagination-page-'+i} className={i === pageNum ? 'current-page' : ''} onClick={getQuizzes.bind(this, i)}>
-        {i}
-      </li>
-    );
-  }
-  
   return (
-    <ul className='pagination'>
-      {pages}
-    </ul>
+    <div className='pagination'>
+      <button disabled={pageNum === 1} onClick={getQuizzes.bind(this, pageNum-1)}>&laquo;</button>
+      {pageNum}
+      <button disabled={pageNum === totalPages} onClick={getQuizzes.bind(this, pageNum+1)}>&raquo;</button>
+    </div>
   );
 };
+
 
 Pagination.propTypes = {
   getQuizzes: PropTypes.func,

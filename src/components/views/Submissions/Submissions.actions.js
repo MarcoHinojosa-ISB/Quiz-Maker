@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 const clear = () => {
 	return {
-		type: 'QUIZZES_CLEAR'
+		type: 'SUBMISSIONS_CLEAR'
 	};
 };
 
