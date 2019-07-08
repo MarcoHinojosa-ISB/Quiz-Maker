@@ -2,10 +2,10 @@
   $border-color: #666666;
   $btn-bg-color-submit: #5cb85c;
   $btn-color-submit: #f7f7f7;
-  
-  position: relative;
 
   .title, .quiz-complete{
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
   }
 
@@ -14,7 +14,6 @@
     margin-bottom: 0;
     padding-left: 0;
     
-
     li{
       height: 150px;
       padding-top: 5px;

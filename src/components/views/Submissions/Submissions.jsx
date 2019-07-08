@@ -28,11 +28,16 @@ class Submissions extends React.Component{
     if(this.props.loading) {
       content = <Loading />;
     } else if(this.props.submissions.length === 0) {
-      content = <h3>No submissions available</h3>;
+      content = (
+        <div>
+          <h3 className="empty">No submissions available</h3>
+          <SubMenu />
+        </div>
+      );
     } else {
       content = (
         <div>
-          <h3 className="title">Submissions</h3>
+          <h2 className="title">Submissions</h2>
           <SubMenu />
           <SubmissionLabels />
           <List submissions={this.props.submissions} />

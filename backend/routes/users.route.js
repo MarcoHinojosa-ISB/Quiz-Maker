@@ -13,7 +13,6 @@ userRoutes.post('/login', (req, res) => {
   });
 });
 
-
 userRoutes.post('/signup', (req, res) => {
   usersRepository.signup(req.body, (err, result) => {
     err ? res.status(500).send(err) : res.status(200).send(generateToken(result)); 

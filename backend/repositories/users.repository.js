@@ -37,11 +37,15 @@ class UsersRepository {
         callback(error, null);
       } else {
         try {
-          let user = await pool.query("INSERT INTO users (username, password) VALUES ($1, $2) returning *", [data.username, hash]);
+          let user = await pool.query('INSERT INTO users (username, password) VALUES ($1, $2) returning *', [data.username, hash]);
           
           callback(null, user.rows[0]);
         } catch(error) {
-          callback(error, null);
+          if(error.code === '23505') {
+            callback('username already exists', null);
+          } else {
+            callback('server error', null);
+          }
         }
       }
     });

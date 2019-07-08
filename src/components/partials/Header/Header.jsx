@@ -18,7 +18,7 @@ class Header extends React.Component{
   render(){
     return (
       <div id="header">
-        <h1 className="title"><Link to="/">Quiz Maker</Link></h1>
+        <h4 className="title"><Link to="/">Quiz Maker</Link></h4>
         <Menu handleLogout={this.handleLogout} />
       </div>
     );

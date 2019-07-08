@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Description = ({title, username}) => {
 	return (
 		<div className="description">
-			<span className="quiz-title">{title}</span>
+			<span className="quiz-title" title={title}>{title}</span>
 			{
 				username ? 
 				<span className="quiz-taker">{username}</span> :

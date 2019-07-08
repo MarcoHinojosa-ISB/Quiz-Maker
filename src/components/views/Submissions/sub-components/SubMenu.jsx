@@ -5,7 +5,7 @@ const SubMenu = () => {
   return (
     <div className="sub-menu">
       <Link to="/quizzes">Quizzes</Link>
-      <Link to="/quiz-creation">Create one</Link>
+      <Link to="/quiz-creation">Create Quiz</Link>
     </div>
   );
 };

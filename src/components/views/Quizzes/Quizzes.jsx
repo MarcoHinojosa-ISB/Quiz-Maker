@@ -28,11 +28,16 @@ class Quizzes extends React.Component{
     if(this.props.loading) {
       content = <Loading />;
     } else if(this.props.quizzes.length === 0) {
-      content = <h3>No quizzes available</h3>;
+      content = (
+        <div>
+          <h3 className="empty">No quizzes available</h3>
+          <SubMenu />
+        </div>
+      );
     } else {
       content = (
         <div>
-          <h3 className="title">Quizzes</h3>
+          <h2 className="title">Quizzes</h2>
           <SubMenu />
           <QuizLabels />
           <List quizzes={this.props.quizzes} />

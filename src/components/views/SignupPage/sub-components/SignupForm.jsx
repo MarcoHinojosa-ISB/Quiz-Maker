@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { clearForm, updateErrorMessage, updatePassword, updateRepassword, updateUsername } from '../SignupPage.actions';
-import { connect } from 'react-redux';
 
 class SignupForm extends React.Component{
   constructor(props){
@@ -10,10 +8,6 @@ class SignupForm extends React.Component{
     this.handlePassword = this.handlePassword.bind(this);
     this.handleRepassword = this.handleRepassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentWillUnmount(){
-    this.props.clearForm();
   }
 
   handleUsername(e){
@@ -65,7 +59,6 @@ SignupForm.propTypes = {
   repassword: PropTypes.string,
   username: PropTypes.string,
   // methods
-  clearForm: PropTypes.func,
   updateErrorMessage: PropTypes.func,
   updatePassword: PropTypes.func,
   updateRepassword: PropTypes.func,
@@ -73,21 +66,4 @@ SignupForm.propTypes = {
   signUp: PropTypes.func
 };
 
-function mapStateToProps(state) {
-  return Object.assign({}, state.signupPage);
-}
-
-function mapDispatchToProps(dispatch) {
-  return{
-    clearForm: () => dispatch(clearForm()),
-    updateErrorMessage: (message) => dispatch(updateErrorMessage(message)),
-    updatePassword: (password) => dispatch(updatePassword(password)),
-    updateRepassword: (repassword) => dispatch(updateRepassword(repassword)),
-    updateUsername: (username) => dispatch(updateUsername(username))
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignupForm);
+export default SignupForm;

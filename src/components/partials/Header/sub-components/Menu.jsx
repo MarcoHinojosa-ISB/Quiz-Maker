@@ -14,9 +14,11 @@ class Menu extends React.Component {
       
       return (
         <ul className="navigation">
-          <li>{userdata.username}</li>
           <li className="clickable"><Link to="/quizzes">Quizzes</Link></li>
-          <li className="clickable" onClick={this.props.handleLogout}>Logout</li>
+          <li className="hoverable">
+            {userdata.username}
+            <div className="submenu" onClick={this.props.handleLogout}>Logout</div>
+          </li>
         </ul>
       );
     } catch(error) {

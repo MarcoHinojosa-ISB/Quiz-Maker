@@ -1,15 +1,15 @@
 #header{
   $bg-color: #333333;
+  $bg-color2: #444444;
   $color: #dddddd;
 
   background-color: $bg-color;
   box-shadow: 0px 1px 3px 0px #777777;
-  min-width: 500px;
-  padding: 10px 20px;
+  padding: 10px 10px;
 
   .title{
     display: inline-block;
-    margin: 0 0;
+    margin: 10px 0;
 
     a{
       @include removeLinkStyle($color);
@@ -17,20 +17,35 @@
   }
 
   .navigation{
-    margin-bottom: 0;
     float: right;
+    margin: 10px 0;
+    padding-left: 0;
 
     li{
       color: $color;
       display: inline-block;
-      margin: 0 5px;
+      margin: 0 3px;
 
-      &.clickable{
+      &.clickable:hover{
         cursor: pointer;
-        
-        &:hover{
-          border-bottom: 2px solid $color;
+        border-bottom: 2px solid $color;
+      }
+
+      &.hoverable:hover{
+        position: relative;
+
+        .submenu{
+          display: block;
         }
+      }
+
+      .submenu{
+        background-color: $bg-color2;
+        cursor: pointer;
+        display: none;
+        padding: 5px;
+        position: absolute;
+        width: 100%;
       }
 
       a{
