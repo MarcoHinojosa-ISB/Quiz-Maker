@@ -9,3 +9,4 @@
 * Sass
 * Webpack & Babel
 * Axios
+* JSON Web Tokens
