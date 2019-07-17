@@ -11,18 +11,20 @@
   }
 
   .login-form{
-    padding: 10px;
+    margin: 0 auto;
+    max-width: 700px;
+    min-width: 300px;
+    width: 50%;
 
     i{
       margin: 0 5px;
     }
-
     input{
       border: 1px solid $input-border-color;
       margin-bottom: 10px;
       padding: 7px;
       width: 100%;
-    }
+    }    
     button[type="submit"]{
       background-color: $btn-bg-color;
       border: none;

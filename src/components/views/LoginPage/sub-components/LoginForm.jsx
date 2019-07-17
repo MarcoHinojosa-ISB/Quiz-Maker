@@ -28,8 +28,10 @@ class LoginForm extends React.Component{
       <form className="login-form" onSubmit={this.handleSubmit} >
         <label><i className="fa fa-user"></i>Username</label>
         <input type="text" onChange={this.handleUsername} value={this.props.username} required />
+
         <label><i className="fa fa-lock"></i>Password</label>
         <input type="password" onChange={this.handlePassword} value={this.props.password} required />
+        
         <button type="submit">Submit</button>
         <div className="error">{this.props.errorMessage}</div>
       </form>
