@@ -17,9 +17,7 @@ class UsersRepository {
         callback('username does not exist', null);
       } else {
         bcrypt.compare(data.password, user.rows[0].password, function(error, isPasswordMatch){
-          if(error) {
-            callback('Server error', null);
-          } else if(!isPasswordMatch) {
+          if(!isPasswordMatch) {
             callback('Password is invalid', null);
           } else {
             callback(null, user.rows[0]);
@@ -27,7 +25,7 @@ class UsersRepository {
         });
       }
     } catch(error) {
-      callback(error, null);
+      callback('server error', null);
     }
   }
   

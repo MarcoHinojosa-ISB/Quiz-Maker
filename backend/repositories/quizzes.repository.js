@@ -11,17 +11,17 @@ const pool = new pg.Pool({
 const Question = require('../models/question.js');
 const Quiz = require('../models/quiz.js');
 
-class QuizzesRepository {
+class QuizzesRepository{
   async createQuiz(data, callback){
     try{
-      const quiz = await pool.query(`INSERT INTO quizzes (title) VALUES ($1) returning id`, [data.title]);
+      const quiz = await pool.query('INSERT INTO quizzes (title) VALUES ($1) returning id', [data.title]);
 
       let questions = [];
       for(let i=0; i<data.questions.length; i++){
         questions.push([quiz.rows[0].id, data.questions[i]]);
       }
 
-      await pool.query(format(`INSERT INTO questions (quiz_id, question_text) VALUES %L`, questions));
+      await pool.query(format('INSERT INTO questions (quiz_id, question_text) VALUES %L', questions));
 
       callback(null);
     } catch(error) {
@@ -58,8 +58,8 @@ class QuizzesRepository {
 
   async getQuiz(params, callback){
     try{
-      const quiz = await pool.query(`SELECT * FROM quizzes WHERE id = ${params.id}`, []);
-      const questions = await pool.query(`SELECT * FROM questions WHERE quiz_id = ${params.id}`, []);
+      const quiz = await pool.query('SELECT * FROM quizzes WHERE id = $1', [params.id]);
+      const questions = await pool.query('SELECT * FROM questions WHERE quiz_id = $1', [params.id]);
 
       const result = {
         quiz: await new Quiz(quiz.rows[0]),

@@ -1,25 +1,11 @@
 const express = require('express');
-const SubmissionsRepository = require('../repositories/submissions.repository.js');
-
 const submissionRoutes = express.Router();
-const submissionsRepository = new SubmissionsRepository();
 
-submissionRoutes.post('/submission', (req, res) => {
-  submissionsRepository.createSubmission(req.body, (err) => {
-    err ? res.status(500).send(err) : res.status(200).send('ok'); 
-  });
-});
+const SubmissionsController = require('../controllers/submissions.controller');
+const submissionsController = new SubmissionsController();
 
-submissionRoutes.get('/submissions', (req, res) => {
-  submissionsRepository.getSubmissions(req.query, (err, result) => {
-    err ? res.status(500).send(err) : res.status(200).send(result); 
-  });
-});
-
-submissionRoutes.get('/submission', (req, res) => {
-  submissionsRepository.getSubmission(req.query, (err, result) => {
-    err ? res.status(500).send(err) : res.status(200).send(result); 
-  });
-});
+submissionRoutes.post('/submission', submissionsController.createSubmission);
+submissionRoutes.get('/submissions', submissionsController.getSubmissions);
+submissionRoutes.get('/submission', submissionsController.getSubmission);
 
 module.exports = submissionRoutes;

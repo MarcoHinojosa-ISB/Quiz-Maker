@@ -15,7 +15,7 @@ const Quiz = require('../models/quiz.js');
 class SubmissionsRepository {
   async createSubmission(data, callback){
     try{
-      const submission = await pool.query(`INSERT INTO submissions (quiz_id, user_id) VALUES ($1, $2) returning id`, 
+      const submission = await pool.query('INSERT INTO submissions (quiz_id, user_id) VALUES ($1, $2) returning id', 
       [data.quiz.id, data.userId]);
 
       let answers = [];
@@ -23,7 +23,7 @@ class SubmissionsRepository {
         answers.push([submission.rows[0].id, data.questions[i].id, data.answers[i]]);
       }
 
-      await pool.query(format(`INSERT INTO answers (submission_id, question_id, answer_text) VALUES %L`, answers));
+      await pool.query(format('INSERT INTO answers (submission_id, question_id, answer_text) VALUES %L', answers));
 
       callback(null);
     } catch(error) {
@@ -39,8 +39,7 @@ class SubmissionsRepository {
         LEFT JOIN users ON submissions.user_id = users.id
         ORDER BY submissions.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
 
-      const total = await pool.query(`SELECT *
-        FROM submissions ORDER BY date_created DESC`, []);
+      const total = await pool.query('SELECT * FROM submissions ORDER BY date_created DESC', []);
       
       const result = {
         submissions: submissions.rows,
