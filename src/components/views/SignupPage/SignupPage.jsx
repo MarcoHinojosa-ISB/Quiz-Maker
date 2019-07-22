@@ -34,12 +34,14 @@ class SignupPage extends React.Component{
     return (
       <div id="signup-page">
         <div className="panel">
-          <h1>Sign Up</h1>
+          <h1 className="title">Sign Up</h1>
           <SignupForm 
             {...this.props}
             signUp={this.signUp} />
           <hr />
-          <p className="has-account">No account? <Link to="/login-page">Log in</Link></p>
+          <p className="has-account">
+            Have an account? <Link to="/login-page">Log in</Link>
+          </p>
         </div>
       </div>
     );

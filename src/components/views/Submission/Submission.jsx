@@ -28,8 +28,11 @@ class Submission extends React.Component{
     } else {
       content = (
         <div>
-          <Title title={this.props.quiz.title} />
-          <List questions={this.props.questions} answers={this.props.answers} />
+          <Title 
+            title={this.props.quiz.title} />
+          <List 
+            questions={this.props.questions} 
+            answers={this.props.answers} />
         </div>
       );
     }

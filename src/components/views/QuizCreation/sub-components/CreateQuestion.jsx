@@ -9,10 +9,7 @@ const CreateQuestion = ({ disabled, newQuestion, editQuestion, addQuestion }) =>
   return (
     <div className="create-question">
       <h4>Question</h4>
-      <textarea
-        value={newQuestion}
-        onChange={handleChange}>
-      </textarea>
+      <textarea value={newQuestion} onChange={handleChange}></textarea>
       <button type="button" onClick={addQuestion}>Add</button>
       <button type="submit" className={disabled ? 'disabled' : ''} >Submit</button>
     </div>

@@ -7,8 +7,11 @@ const List = ({quizzes}) => {
   let listOfQuizzes = quizzes.map((quiz, i) => {
     return (
       <li key={quiz.title+i}>
-        <Description title={quiz.title} length={quiz.numberOfQuestions} />
-        <Links quizId={quiz.id} />
+        <Description 
+          title={quiz.title} 
+          length={quiz.numberOfQuestions} />
+        <Links 
+          quizId={quiz.id} />
       </li>
     );
   });

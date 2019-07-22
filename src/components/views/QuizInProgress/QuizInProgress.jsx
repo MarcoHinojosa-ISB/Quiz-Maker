@@ -62,9 +62,15 @@ class QuizInProgress extends React.Component{
     } else {
       content = (
         <div>
-          <Title title={this.props.quiz.title} />
-          <List questions={this.props.questions} updateAnswer={this.props.updateAnswer} />
-          <Submit handleSubmit={this.handleSubmit} />
+          <Title 
+            title={this.props.quiz.title} />
+          
+          <form onSubmit={this.handleSubmit}>
+            <List 
+              questions={this.props.questions} 
+              updateAnswer={this.props.updateAnswer} />
+            <Submit />
+          </form>
         </div>
       );
     }

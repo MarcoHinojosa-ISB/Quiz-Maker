@@ -28,8 +28,10 @@ class Preview extends React.Component{
     } else {
       content = (
         <div>
-          <Title title={this.props.quiz.title} />
-          <List questions={this.props.questions} />
+          <Title 
+            title={this.props.quiz.title} />
+          <List 
+            questions={this.props.questions} />
         </div>
       );
     }

@@ -1,16 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Submit = ({handleSubmit}) => {
-  return (
-    <form className="submit" onSubmit={handleSubmit}>
-      <button type="submit"><strong>Submit</strong></button>
-    </form>
-  );
-};
-
-Submit.propTypes = {
-  handleSubmit: PropTypes.func
+const Submit = () => {
+  return <button className="submit" type="submit">Submit</button>;
 };
 
 export default Submit;

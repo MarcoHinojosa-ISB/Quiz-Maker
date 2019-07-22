@@ -37,10 +37,11 @@ class Submissions extends React.Component{
     } else {
       content = (
         <div>
-          <h2 className="title">Submissions</h2>
+          <h1 className="title">Submissions</h1>
           <SubMenu />
           <SubmissionLabels />
-          <List submissions={this.props.submissions} />
+          <List 
+            submissions={this.props.submissions} />
           <Pagination 
             totalPages={this.props.totalPages}
             pageNum={this.props.pageNum} 

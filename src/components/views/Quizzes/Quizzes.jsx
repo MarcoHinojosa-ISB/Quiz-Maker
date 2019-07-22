@@ -37,10 +37,11 @@ class Quizzes extends React.Component{
     } else {
       content = (
         <div>
-          <h2 className="title">Quizzes</h2>
+          <h1 className="title">Quizzes</h1>
           <SubMenu />
           <QuizLabels />
-          <List quizzes={this.props.quizzes} />
+          <List 
+            quizzes={this.props.quizzes} />
           <Pagination 
             totalPages={this.props.totalPages}
             pageNum={this.props.pageNum} 
