@@ -8,10 +8,6 @@ const pool = new pg.Pool({
   connectionString
 });
 
-const Answer = require('../models/answer.js');
-const Question = require('../models/question.js');
-const Quiz = require('../models/quiz.js');
-
 class SubmissionsRepository {
   async createSubmission(data, callback){
     try{
@@ -40,13 +36,11 @@ class SubmissionsRepository {
         ORDER BY submissions.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
 
       const total = await pool.query('SELECT * FROM submissions ORDER BY date_created DESC', []);
-      
-      const result = {
+
+      callback(null, {
         submissions: submissions.rows,
         total: total.rows.length
-      };
-
-      callback(null, result);
+      });
     } catch(error) {
       callback(error, null);
     }
@@ -63,13 +57,10 @@ class SubmissionsRepository {
         JOIN submissions ON submissions.id = ${params.id} 
         WHERE quizzes.id = submissions.quiz_id`, []);
 
-      const result = {
-        answers: questionsAnswers.rows.map((row) => new Answer(row)),
-        questions: questionsAnswers.rows.map((row) => new Question(row)),
-        quiz: new Quiz(quiz.rows[0])
-      };
-
-      callback(null, result);
+      callback(null, {
+        questionsAnswers: questionsAnswers.rows,
+        quiz: quiz.rows[0]
+      });
     } catch(error) {
       callback(error, null);
     }

@@ -9,7 +9,7 @@ const List = ({quizzes}) => {
       <li key={quiz.title+i}>
         <Description 
           title={quiz.title} 
-          length={quiz.numberOfQuestions} />
+          length={parseInt(quiz.questionCount)} />
         <Links 
           quizId={quiz.id} />
       </li>

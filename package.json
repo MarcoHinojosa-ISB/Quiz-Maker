@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "webpack -p --display-error-details",
-    "dev": "webpack-dev-server"
+    "build": "webpack --display-error-details --config webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack.dev.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -42,6 +42,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.3",
-    "webpack-dev-server": "^3.7.1"
+    "webpack-dev-server": "^3.7.1",
+    "webpack-merge": "^4.2.1"
   }
 }

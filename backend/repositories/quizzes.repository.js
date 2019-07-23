@@ -8,9 +8,6 @@ const pool = new pg.Pool({
   connectionString
 });
 
-const Question = require('../models/question.js');
-const Quiz = require('../models/quiz.js');
-
 class QuizzesRepository{
   async createQuiz(data, callback){
     try{
@@ -31,26 +28,17 @@ class QuizzesRepository{
 
   async getQuizzes(params, callback){
     try{
-      const quizzes = await pool.query(`SELECT quizzes.*, count(questions.*) AS q_count 
+      const quizzes = await pool.query(`SELECT quizzes.*, count(questions.*) AS question_count 
         FROM quizzes 
         JOIN questions ON quizzes.id = questions.quiz_id
         GROUP BY quizzes.id
         ORDER BY quizzes.date_created DESC LIMIT ${8} OFFSET ${(params.page - 1) * 8}`, []);
-
-      const mappedQuizzes = await quizzes.rows.map((row) => {
-        return Object.assign({ numberOfQuestions: parseInt(row.q_count) }, new Quiz(row));
-      });
-
-      const total = await pool.query(`SELECT quizzes.*
-        FROM quizzes 
-        ORDER BY quizzes.date_created DESC`, []);
+      const total = await pool.query('SELECT * FROM quizzes', []);
       
-      const result = {
-        quizzes: mappedQuizzes,
+      callback(null, {
+        quizzes: quizzes.rows,
         total: total.rows.length
-      };
-
-      callback(null, result);
+      });
     } catch(error) {
       callback(error, null);
     }
@@ -61,12 +49,10 @@ class QuizzesRepository{
       const quiz = await pool.query('SELECT * FROM quizzes WHERE id = $1', [params.id]);
       const questions = await pool.query('SELECT * FROM questions WHERE quiz_id = $1', [params.id]);
 
-      const result = {
-        quiz: await new Quiz(quiz.rows[0]),
-        questions: await questions.rows.map((row) => new Question(row)),
-      };
-
-      callback(null, result);
+      callback(null, {
+        quiz: quiz.rows[0],
+        questions: questions.rows
+      });
     } catch(error) {
       callback(error, null);
     }
