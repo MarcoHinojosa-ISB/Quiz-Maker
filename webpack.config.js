@@ -17,7 +17,7 @@ const config = {
       }
     ]
   },
-  entry: ['./src/entry.js', './src/entry.scss'],
+  entry: ['./src/entry.js', './src/stylesheets/entry.scss'],
   output: {
     path: __dirname + '/src/build',
     publicPath: '/src/build',

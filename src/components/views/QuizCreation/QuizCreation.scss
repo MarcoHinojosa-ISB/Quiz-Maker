@@ -46,14 +46,14 @@
     }
     input{
       border: 1px solid $input-border-color;
-      padding: 5px 0px 5px 5px;
       outline: none;
+      padding: 5px 0px 5px 5px;
       width: 100%;
     }
   }
 
   .questions{
-    >h3{
+    h3{
       border-bottom: 1px solid $border-color;
       margin-bottom: 0px;
     }
